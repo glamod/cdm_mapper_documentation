@@ -28,14 +28,14 @@ class mapping_functions():
     def __init__(self, atts):
         self.atts = atts
 
-    def string_opposite(self,ds):
+    def string_opposite(self, ds):
         return '-' + ds
-    
-    def select_column(self,df):
+
+    def select_column(self, df):
         c = df.columns.to_list()
         c.reverse()
         s = df[c[0]].copy()
-        if len(c)> 1:
+        if len(c) > 1:
             for ci in c[1:]:
                 s.update(df[ci])
         return s

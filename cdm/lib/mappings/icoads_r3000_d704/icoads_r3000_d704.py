@@ -166,4 +166,4 @@ class mapping_functions():
 
     def feet_to_m(self, ds, float_type='float32'):
         ds.astype(float_type)
-        return np.round(ds/3.2808, 2)
+        return np.round(ds / 3.2808, 2)
