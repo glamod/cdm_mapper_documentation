@@ -1,0 +1,16 @@
+{
+    "z_coordinate": {
+        "elements": ["thmH1","platH","brmH1"],
+        "transform": "select_column"
+    },
+    "observation_height_above_station_surface": {
+        "elements": ["thmH1","platH","brmH1"],
+        "transform": "select_column"
+    },
+    "sensor_id": {
+        "elements": "th1"
+    },
+    "sensor_automation_status": {
+        "elements": "automation"
+    }
+}

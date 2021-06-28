@@ -1,0 +1,17 @@
+{
+    "station_name": {
+        "elements": "name"
+    },
+    "platform_sub_type": {
+        "elements": "vssl"
+    },
+    "primary_station_id": {
+        "elements": "call"
+    },
+    "station_record_number": {
+        "elements": "record"
+    },
+    "report_duration": {
+        "elements": "freq"
+    }
+}

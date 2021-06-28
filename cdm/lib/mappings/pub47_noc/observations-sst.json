@@ -1,0 +1,16 @@
+{
+    "z_coordinate": {
+        "elements": "sstD1",
+        "transform": "string_opposite"
+    },
+    "observation_height_above_station_surface": {
+        "elements": "sstD1",
+        "transform": "string_opposite"
+    },
+    "sensor_id": {
+        "elements": "st1"
+    },
+    "sensor_automation_status": {
+        "elements": "automation"
+    }
+}

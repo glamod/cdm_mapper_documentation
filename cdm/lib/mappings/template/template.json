@@ -1,0 +1,54 @@
+{
+    "from_single_field_direct_mapping_any_not_float": {
+        "sections": "x",
+        "elements": "y"
+    },
+    "from_single_field_direct_mapping_float_harcoded": {
+            "sections": "x",
+            "elements": "y",
+            "decimal_places":0
+    },
+    "from_single_field_direct_mapping_float_function": {
+            "sections": "x",
+            "elements": "y",
+            "decimal_places":"function_name"
+    },
+    "from_single_field_function_mapping_no_kwargs": {
+        "sections": "x",
+        "elements": "y",
+        "transform":"function_name"
+    },
+    "from_single_field_function_mapping_kwargs": {
+        "sections": "x",
+        "elements": "y",
+        "transform":"function_name",
+        "kwargs":{"arg1":"1","arg2":2}
+    },
+    "from_single_field_direct_mapping_float": {
+            "sections": "x",
+            "elements": "y",
+            "decimal_places":0
+    },
+    "from_single_field_code_table_mapping": {
+            "sections": "x",
+            "elements": "y",
+            "code_table":"code_table_name"
+    },
+    "from_multiple_fields_1_section_any_mapping": {
+            "sections": "x",
+            "elements": ["y1","y2","y3","y4"]
+    },
+    "from_multiple_fields_multiple_sections_any_mapping": {
+            "sections": ["x1","x1","x2","x3"],
+            "elements": ["y1","y2","y3","y4"]
+    },
+    "fixed_value_numeric": {
+        "default":0
+    },
+    "fixed_value_string": {
+        "default":"0"
+    },
+    "fixed_value_list": {
+        "default":[1,2,3]
+    }
+}
