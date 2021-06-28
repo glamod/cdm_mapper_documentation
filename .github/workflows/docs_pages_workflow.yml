@@ -1,0 +1,31 @@
+name: docs_pages_workflow
+ 
+# execute this workflow automatically when a we push to master
+on:
+  push:
+    branches: [ master ]
+ 
+jobs:
+ 
+  build_docs_job:
+    runs-on: ubuntu-latest
+    container:
+      image: python:3.6
+
+    steps:
+ 
+    - name: Prereqs
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        apt-get update
+        apt-get install -y git
+        pip install sphinx==3.5.4 sphinx-autoapi==1.8.0 sphinx-rtd-theme==0.5.2 sphinx-autodoc-typehints
+        git clone --depth 1 "https://token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" .
+      shell: bash
+ 
+    - name: Execute script to build our documentation and update pages
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: "docs/buildDocs.sh"
+      shell: bash
