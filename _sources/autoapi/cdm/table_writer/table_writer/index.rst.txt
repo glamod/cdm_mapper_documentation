@@ -1,0 +1,211 @@
+:mod:`cdm.table_writer.table_writer`
+====================================
+
+.. py:module:: cdm.table_writer.table_writer
+
+.. autoapi-nested-parse::
+
+   Created on Thu Apr 11 13:45:38 2019
+
+   Exports tables written in the C3S Climate Data Store Common Data Model (CDM) format to ascii files,
+   The tables format is contained in a python dictionary, stored as an attribute in a pandas.DataFrame
+   (or pd.io.parsers.TextFileReader).
+
+   This module uses a set of printer functions to "print" element values to a
+   string object before exporting them to a final ascii file.
+
+   Each of the CDM table element's has a data type (pseudo-sql as defined in the CDM documentation) which defines
+   which printer function needs to be used.
+
+   Numeric data types are printed with an specific number of decimal places, defined in the data element attributes. This
+   can vary according to each CDM, element, imodel and mapping .json file. If this is not defined in the input attributes
+   of the imodel, the number of decimal places used comes from a default tool defined in properties.py
+
+   @author: iregon
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cdm.table_writer.table_writer.print_integer
+   cdm.table_writer.table_writer.print_float
+   cdm.table_writer.table_writer.print_datetime
+   cdm.table_writer.table_writer.print_varchar
+   cdm.table_writer.table_writer.print_integer_array
+   cdm.table_writer.table_writer.print_float_array
+   cdm.table_writer.table_writer.print_datetime_array
+   cdm.table_writer.table_writer.print_varchar_array
+   cdm.table_writer.table_writer.print_integer_array_i
+   cdm.table_writer.table_writer.print_varchar_array_i
+   cdm.table_writer.table_writer.table_to_ascii
+   cdm.table_writer.table_writer.cdm_to_ascii
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   cdm.table_writer.table_writer.module_path
+   cdm.table_writer.table_writer.printers
+   cdm.table_writer.table_writer.iprinters_kwargs
+
+
+.. data:: module_path
+   
+
+   
+
+.. function:: print_integer(data, null_label)
+
+   Prints all elements that have 'int' as type attribute
+   :param data:
+   :type data: data tables to print
+   :param null_label:
+   :type null_label: specified how nan are represented
+
+   :returns: **data**
+   :rtype: data as int type
+
+
+.. function:: print_float(data, null_label, decimal_places=None)
+
+   Prints all elements that have 'float' as type attribute
+   :param data:
+   :type data: data tables to print
+   :param null_label:
+   :type null_label: specified how nan are represented
+   :param decimal_places:
+   :type decimal_places: number of decimal places
+
+   :returns: **data**
+   :rtype: data as float type
+
+
+.. function:: print_datetime(data, null_label)
+
+   Print datetime objects in the format: "%Y-%m-%d %H:%M:%S"
+   :param data:
+   :type data: date time elements
+   :param null_label:
+   :type null_label: specified how nan are represented
+
+   :returns: **data**
+   :rtype: data as datetime objects
+
+
+.. function:: print_varchar(data, null_label)
+
+   Prints string elements
+   :param data:
+   :type data: data tables to print
+   :param null_label:
+   :type null_label: specified how nan are represented
+
+   :returns: **data**
+   :rtype: data as string objects
+
+
+.. function:: print_integer_array(data, null_label)
+
+   Prints a series of integer objects as array
+   :param data:
+   :type data: data tables to print
+   :param null_label:
+   :type null_label: specified how nan are represented
+
+   :returns: **data**
+   :rtype: array of int objects
+
+
+.. function:: print_float_array(data, null_label, decimal_places=None)
+
+
+.. function:: print_datetime_array(data, null_label)
+
+
+.. function:: print_varchar_array(data, null_label)
+
+   Prints a series of string objects as array
+   :param data:
+   :type data: data tables to print
+   :param null_label:
+   :type null_label: specified how nan are represented
+
+
+.. data:: printers
+   
+
+   
+
+.. data:: iprinters_kwargs
+   
+
+   
+
+.. function:: print_integer_array_i(row, null_label=None)
+
+   :param row:
+   :param null_label:
+
+
+.. function:: print_varchar_array_i(row, null_label=None)
+
+   NEEDS DOCUMENTING
+   :param row:
+   :param null_label:
+
+
+.. function:: table_to_ascii(table, table_atts, delimiter='|', null_label='null', cdm_complete=True, filename=None, full_table=True, log_level='INFO')
+
+   Exports a cdm table to an ascii file.
+   Exports tables written in the C3S Climate Data Store Common Data Model (CDM) format to ascii files.
+   The tables format is contained in a python dictionary, stored as an attribute in a ``pandas.DataFrame``
+   (or ``pd.io.parsers.TextFileReader``).
+
+   :param table: pandas.Dataframe to export
+   :param table_atts: This contains all element names, characteristics and types encoding,
+                      as well as other characteristics e.g. decimal places, etc.
+   :type table_atts: attributes of the pandas.Dataframe stored as a python dictionary.
+   :param delimiter: default '|'
+   :param null_label: specified how nan are represented
+   :param cdm_complete: default is ``True``
+   :type cdm_complete: if we export the entire set of tables.
+   :param filename: the name of the file to stored the data
+   :param full_table: if we export a single table
+   :param log_level: level of logging information to be saved
+
+   :returns:
+   :rtype: Saves cdm tables as ascii files
+
+
+.. function:: cdm_to_ascii(cdm, delimiter='|', null_label='null', cdm_complete=True, extension='psv', out_dir=None, suffix=None, prefix=None, log_level='INFO')
+
+   Exports a complete cdm file with multiple tables to an ascii file.
+   Exports a complete cdm file with multiple tables written in the C3S Climate Data Store Common Data Model (CDM)
+   format to ascii files.
+   The tables format is contained in a python dictionary, stored as an attribute in a ``pandas.DataFrame``
+   (or ``pd.io.parsers.TextFileReader``).
+
+   :param cdm: common data model tables to export
+   :param delimiter: default '|'
+   :param null_label: specified how nan are represented
+   :param cdm_complete: extract the entire cdm file
+   :param extension: default 'psv'
+   :param out_dir: where to stored the ascii file
+   :param suffix: file suffix
+   :param prefix: file prefix
+   :param log_level: level of logging information
+
+   :returns:
+   :rtype: Saves the cdm tables as ascii files in the given directory with a psv extension.
+
+

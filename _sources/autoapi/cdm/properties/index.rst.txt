@@ -1,0 +1,64 @@
+:mod:`cdm.properties`
+=====================
+
+.. py:module:: cdm.properties
+
+
+Module Contents
+---------------
+
+.. data:: mappings_lib
+   
+
+   
+
+.. data:: supported_models
+   
+
+   
+
+.. data:: cdm_tables
+   :annotation: = ['header', 'observations-at', 'observations-sst', 'observations-dpt', 'observations-wbt',...
+
+   
+
+.. data:: numpy_integers
+   :annotation: = ['int8', 'int16', 'int32', 'int64', 'uint8', 'uint16', 'uint32', 'uint64']
+
+   
+
+.. data:: numpy_floats
+   :annotation: = ['float16', 'float32', 'float64']
+
+   
+
+.. data:: pandas_nan_integers
+   
+
+   
+
+.. data:: numeric_types
+   
+
+   
+
+.. data:: object_types
+   :annotation: = ['str', 'object', 'key', 'datetime']
+
+   
+
+.. data:: data_types
+   
+
+   
+
+.. data:: pandas_dtypes
+   
+
+   
+
+.. data:: default_decimal_places
+   :annotation: = 5
+
+   
+

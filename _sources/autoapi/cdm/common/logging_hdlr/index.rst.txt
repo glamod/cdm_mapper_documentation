@@ -1,0 +1,41 @@
+:mod:`cdm.common.logging_hdlr`
+==============================
+
+.. py:module:: cdm.common.logging_hdlr
+
+.. autoapi-nested-parse::
+
+   Created on Wed Apr  3 08:45:03 2019
+
+   @author: iregon
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cdm.common.logging_hdlr.init_logger
+
+
+
+.. function:: init_logger(module, level='DEBUG', fn=None)
+
+   Initialize logging parameters and levels of logging
+
+   :param module:
+   :type module: name of the module to log
+   :param level:
+   :type level: level of logging. e.g. ``DEBUG``, ``INFO`` etc
+   :param fn:
+   :type fn: file name
+
+   :returns: **logging.object** -- logger of the hierarchy.
+   :rtype: Return a logger with the specified name, or if name is None, return a logger which is the root
+
+

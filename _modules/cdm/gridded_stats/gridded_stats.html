@@ -1,0 +1,685 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cdm.gridded_stats.gridded_stats &mdash; cdm-mapper v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> cdm-mapper
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tool-set-up.html">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#install-mdf-reader-toolbox">4. Install <code class="docutils literal notranslate"><span class="pre">mdf_reader</span></code> toolbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#optional-step-install-jupyter-notebooks">5. Optional step: install jupyter notebooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started.html#test-the-tool">1. Test the tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started.html#read-a-sample-imma">2. Read a sample <code class="docutils literal notranslate"><span class="pre">.imma</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started.html#map-this-data-to-a-cdm-build-for-the-same-deck">3. Map this data to a CDM build for the same deck</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started.html#write-the-output">4. Write the output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how-to-register-a-new-data-model-mapping.html">How to register a new data model mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cdm-tables-mapping-files-and-descriptors.html">CDM tables mapping files and descriptors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cdm-tables-mapping-files-and-descriptors.html#descriptors">Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cdm-tables-mapping-files-and-descriptors.html#mapping-sequence">Mapping sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cdm-tables-mapping-files-and-descriptors.html#defining-mapping-functions">Defining mapping functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cdm-tables-mapping-files-and-descriptors.html#code-tables">Code tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../autoapi/cdm/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/cdm/index.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/cdm/common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.common</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/cdm/gridded_stats/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.gridded_stats</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/cdm/lib/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.lib</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/cdm/mapper/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.mapper</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/cdm/table_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/cdm/table_writer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_writer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/cdm/index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/cdm/properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.properties</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/cdm/index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/cdm/index.html#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">cdm-mapper</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cdm.gridded_stats.gridded_stats</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cdm.gridded_stats.gridded_stats</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Created on Tue May 21 16:06:16 2019</span>
+
+<span class="sd">Important note:</span>
+<span class="sd">    This script is not well documented and it seems to have incomplete work.</span>
+
+<span class="sd">Sets data descriptors on a monthly lat-lon box grid: counts, max, min, mean. And saves data to a netcdf file</span>
+
+<span class="sd">@author: iregon</span>
+
+<span class="sd">DEVS notes:</span>
+<span class="sd">    These functions using dask need to work with env1 in C3S r092019, since there are some issues with pyarrow and</span>
+<span class="sd">    msgpack that had to be downgraded from 0.6.0 (default) to 0.5.6 after.</span>
+
+<span class="sd">    File &quot;msgpack/_unpacker.pyx&quot;, line 187, in msgpack._cmsgpack.unpackb</span>
+<span class="sd">    ValueError: 1281167 exceeds max_array_len(131072)</span>
+<span class="sd">    See https://github.com/tensorpack/tensorpack/issues/1003</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">dask</span> <span class="kn">import</span> <span class="n">dataframe</span> <span class="k">as</span> <span class="n">dd</span>
+<span class="kn">import</span> <span class="nn">dask.diagnostics</span> <span class="k">as</span> <span class="nn">diag</span>
+<span class="kn">import</span> <span class="nn">datashader</span> <span class="k">as</span> <span class="nn">ds</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">cdm</span> <span class="kn">import</span> <span class="n">properties</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+
+<span class="c1"># SOME COMMON PARAMS ----------------------------------------------------------</span>
+<span class="c1"># For canvas</span>
+<div class="viewcode-block" id="REGIONS"><a class="viewcode-back" href="../../../autoapi/cdm/gridded_stats/gridded_stats/index.html#cdm.gridded_stats.gridded_stats.REGIONS">[docs]</a><span class="n">REGIONS</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span></div>
+<span class="n">REGIONS</span><span class="p">[</span><span class="s1">&#39;Global&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="o">-</span><span class="mf">180.00</span><span class="p">,</span> <span class="mf">180.00</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">90.00</span><span class="p">,</span> <span class="mf">90.00</span><span class="p">))</span>
+<div class="viewcode-block" id="DEGREE_FACTOR_RESOLUTION"><a class="viewcode-back" href="../../../autoapi/cdm/gridded_stats/gridded_stats/index.html#cdm.gridded_stats.gridded_stats.DEGREE_FACTOR_RESOLUTION">[docs]</a><span class="n">DEGREE_FACTOR_RESOLUTION</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span></div>
+<span class="n">DEGREE_FACTOR_RESOLUTION</span><span class="p">[</span><span class="s1">&#39;lo_res&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">DEGREE_FACTOR_RESOLUTION</span><span class="p">[</span><span class="s1">&#39;me_res&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">DEGREE_FACTOR_RESOLUTION</span><span class="p">[</span><span class="s1">&#39;hi_res&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="c1"># To define aggregationa</span>
+<div class="viewcode-block" id="DS_AGGREGATIONS"><a class="viewcode-back" href="../../../autoapi/cdm/gridded_stats/gridded_stats/index.html#cdm.gridded_stats.gridded_stats.DS_AGGREGATIONS">[docs]</a><span class="n">DS_AGGREGATIONS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;counts&#39;</span><span class="p">:</span> <span class="n">ds</span><span class="o">.</span><span class="n">count</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="n">ds</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="n">ds</span><span class="o">.</span><span class="n">min</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">:</span> <span class="n">ds</span><span class="o">.</span><span class="n">mean</span><span class="p">}</span></div>
+<div class="viewcode-block" id="AGGREGATIONS"><a class="viewcode-back" href="../../../autoapi/cdm/gridded_stats/gridded_stats/index.html#cdm.gridded_stats.gridded_stats.AGGREGATIONS">[docs]</a><span class="n">AGGREGATIONS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;counts&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">]</span></div>
+<div class="viewcode-block" id="DS_AGGREGATIONS_HDR"><a class="viewcode-back" href="../../../autoapi/cdm/gridded_stats/gridded_stats/index.html#cdm.gridded_stats.gridded_stats.DS_AGGREGATIONS_HDR">[docs]</a><span class="n">DS_AGGREGATIONS_HDR</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;counts&#39;</span><span class="p">:</span> <span class="n">ds</span><span class="o">.</span><span class="n">count</span><span class="p">}</span></div>
+<div class="viewcode-block" id="AGGREGATIONS_HDR"><a class="viewcode-back" href="../../../autoapi/cdm/gridded_stats/gridded_stats/index.html#cdm.gridded_stats.gridded_stats.AGGREGATIONS_HDR">[docs]</a><span class="n">AGGREGATIONS_HDR</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;counts&#39;</span><span class="p">]</span></div>
+<span class="c1"># TO output nc</span>
+<div class="viewcode-block" id="ENCODINGS"><a class="viewcode-back" href="../../../autoapi/cdm/gridded_stats/gridded_stats/index.html#cdm.gridded_stats.gridded_stats.ENCODINGS">[docs]</a><span class="n">ENCODINGS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;latitude&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dtype&#39;</span><span class="p">:</span> <span class="s1">&#39;int16&#39;</span><span class="p">,</span> <span class="s1">&#39;scale_factor&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span> <span class="s1">&#39;_FillValue&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">99999</span><span class="p">},</span>
+             <span class="s1">&#39;longitude&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dtype&#39;</span><span class="p">:</span> <span class="s1">&#39;int16&#39;</span><span class="p">,</span> <span class="s1">&#39;scale_factor&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span> <span class="s1">&#39;_FillValue&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">99999</span><span class="p">},</span>
+             <span class="s1">&#39;counts&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dtype&#39;</span><span class="p">:</span> <span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="s1">&#39;_FillValue&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">99999</span><span class="p">},</span>
+             <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dtype&#39;</span><span class="p">:</span> <span class="s1">&#39;int32&#39;</span><span class="p">,</span> <span class="s1">&#39;scale_factor&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span> <span class="s1">&#39;_FillValue&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">99999</span><span class="p">},</span>
+             <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dtype&#39;</span><span class="p">:</span> <span class="s1">&#39;int32&#39;</span><span class="p">,</span> <span class="s1">&#39;scale_factor&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span> <span class="s1">&#39;_FillValue&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">99999</span><span class="p">},</span>
+             <span class="s1">&#39;mean&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dtype&#39;</span><span class="p">:</span> <span class="s1">&#39;int32&#39;</span><span class="p">,</span> <span class="s1">&#39;scale_factor&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span> <span class="s1">&#39;_FillValue&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">99999</span><span class="p">}}</span></div>
+<div class="viewcode-block" id="ENCODINGS_HDR"><a class="viewcode-back" href="../../../autoapi/cdm/gridded_stats/gridded_stats/index.html#cdm.gridded_stats.gridded_stats.ENCODINGS_HDR">[docs]</a><span class="n">ENCODINGS_HDR</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;latitude&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dtype&#39;</span><span class="p">:</span> <span class="s1">&#39;int16&#39;</span><span class="p">,</span> <span class="s1">&#39;scale_factor&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span> <span class="s1">&#39;_FillValue&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">99999</span><span class="p">},</span>
+                 <span class="s1">&#39;longitude&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dtype&#39;</span><span class="p">:</span> <span class="s1">&#39;int16&#39;</span><span class="p">,</span> <span class="s1">&#39;scale_factor&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span> <span class="s1">&#39;_FillValue&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">99999</span><span class="p">},</span>
+                 <span class="s1">&#39;counts&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dtype&#39;</span><span class="p">:</span> <span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="s1">&#39;_FillValue&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">99999</span><span class="p">}}</span></div>
+<span class="c1"># To read tables</span>
+<div class="viewcode-block" id="CDM_DTYPES"><a class="viewcode-back" href="../../../autoapi/cdm/gridded_stats/gridded_stats/index.html#cdm.gridded_stats.gridded_stats.CDM_DTYPES">[docs]</a><span class="n">CDM_DTYPES</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;latitude&#39;</span><span class="p">:</span> <span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">:</span> <span class="s1">&#39;float32&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;observation_value&#39;</span><span class="p">:</span> <span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="s1">&#39;date_time&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;quality_flag&#39;</span><span class="p">:</span> <span class="s1">&#39;int8&#39;</span><span class="p">,</span> <span class="s1">&#39;crs&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;report_quality&#39;</span><span class="p">:</span> <span class="s1">&#39;int8&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;report_id&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">}</span></div>
+<div class="viewcode-block" id="READ_COLS"><a class="viewcode-back" href="../../../autoapi/cdm/gridded_stats/gridded_stats/index.html#cdm.gridded_stats.gridded_stats.READ_COLS">[docs]</a><span class="n">READ_COLS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;report_id&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;observation_value&#39;</span><span class="p">,</span> <span class="s1">&#39;date_time&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;quality_flag&#39;</span><span class="p">]</span></div>
+<div class="viewcode-block" id="DTYPES"><a class="viewcode-back" href="../../../autoapi/cdm/gridded_stats/gridded_stats/index.html#cdm.gridded_stats.gridded_stats.DTYPES">[docs]</a><span class="n">DTYPES</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">CDM_DTYPES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">READ_COLS</span><span class="p">}</span></div>
+
+<div class="viewcode-block" id="READ_COLS_HDR"><a class="viewcode-back" href="../../../autoapi/cdm/gridded_stats/gridded_stats/index.html#cdm.gridded_stats.gridded_stats.READ_COLS_HDR">[docs]</a><span class="n">READ_COLS_HDR</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;report_id&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;crs&#39;</span><span class="p">,</span> <span class="s1">&#39;report_timestamp&#39;</span><span class="p">,</span> <span class="s1">&#39;report_quality&#39;</span><span class="p">]</span></div>
+<div class="viewcode-block" id="DTYPES_HDR"><a class="viewcode-back" href="../../../autoapi/cdm/gridded_stats/gridded_stats/index.html#cdm.gridded_stats.gridded_stats.DTYPES_HDR">[docs]</a><span class="n">DTYPES_HDR</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">CDM_DTYPES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">READ_COLS</span><span class="p">}</span></div>
+
+<div class="viewcode-block" id="DELIMITER"><a class="viewcode-back" href="../../../autoapi/cdm/gridded_stats/gridded_stats/index.html#cdm.gridded_stats.gridded_stats.DELIMITER">[docs]</a><span class="n">DELIMITER</span> <span class="o">=</span> <span class="s1">&#39;|&#39;</span></div>
+
+
+<span class="c1"># SOME FUNCTIONS THAT HELP ----------------------------------------------------</span>
+<div class="viewcode-block" id="bounds"><a class="viewcode-back" href="../../../autoapi/cdm/gridded_stats/gridded_stats/index.html#cdm.gridded_stats.gridded_stats.bounds">[docs]</a><span class="k">def</span> <span class="nf">bounds</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">y_range</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x_range:</span>
+<span class="sd">    y_range:</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">x_range</span><span class="o">=</span><span class="n">x_range</span><span class="p">,</span> <span class="n">y_range</span><span class="o">=</span><span class="n">y_range</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="create_canvas"><a class="viewcode-back" href="../../../autoapi/cdm/gridded_stats/gridded_stats/index.html#cdm.gridded_stats.gridded_stats.create_canvas">[docs]</a><span class="k">def</span> <span class="nf">create_canvas</span><span class="p">(</span><span class="n">bbox</span><span class="p">,</span> <span class="n">degree_factor</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    bbox:</span>
+<span class="sd">    degree_factor:</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    plot:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">plot_width</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">bbox</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">degree_factor</span><span class="p">)</span>
+    <span class="n">plot_height</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">bbox</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">degree_factor</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ds</span><span class="o">.</span><span class="n">Canvas</span><span class="p">(</span><span class="n">plot_width</span><span class="o">=</span><span class="n">plot_width</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="n">plot_height</span><span class="p">,</span> <span class="o">**</span><span class="n">bounds</span><span class="p">(</span><span class="o">*</span><span class="n">bbox</span><span class="p">))</span></div>
+
+
+<span class="c1"># FUNCTIONS TO DO WHAT WE WANT ------------------------------------------------</span>
+<div class="viewcode-block" id="from_cdm_monthly"><a class="viewcode-back" href="../../../autoapi/cdm/gridded_stats/gridded_stats/index.html#cdm.gridded_stats.gridded_stats.from_cdm_monthly">[docs]</a><span class="k">def</span> <span class="nf">from_cdm_monthly</span><span class="p">(</span><span class="n">dir_data</span><span class="p">,</span> <span class="n">cdm_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="s1">&#39;Global&#39;</span><span class="p">,</span>
+                     <span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;lo_res&#39;</span><span class="p">,</span> <span class="n">nc_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">qc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">qc_report</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dir_data</span>
+<span class="sd">    cdm_id</span>
+<span class="sd">    region</span>
+<span class="sd">    resolution</span>
+<span class="sd">    nc_dir</span>
+<span class="sd">    qc</span>
+<span class="sd">    qc_report</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    logging.error:</span>
+<span class="sd">    netcdf_file:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">qc_extensions</span> <span class="o">=</span> <span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;qc&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">qc</span><span class="p">])</span> <span class="k">if</span> <span class="n">qc</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">qc_report_extensions</span> <span class="o">=</span> <span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;qcr&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">qc_report</span><span class="p">])</span> <span class="k">if</span> <span class="n">qc_report</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="c1"># qc is the list of flags we want to keep, as integers, ideally, ok, include conversion just in case</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(levelname)s</span><span class="se">\t</span><span class="s1">[</span><span class="si">%(asctime)s</span><span class="s1">](</span><span class="si">%(filename)s</span><span class="s1">)</span><span class="se">\t</span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+                        <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+    <span class="n">canvas</span> <span class="o">=</span> <span class="n">create_canvas</span><span class="p">(</span><span class="n">REGIONS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">region</span><span class="p">),</span> <span class="n">DEGREE_FACTOR_RESOLUTION</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">resolution</span><span class="p">))</span>
+
+    <span class="n">table</span> <span class="o">=</span> <span class="s1">&#39;header&#39;</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Processing table </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table</span><span class="p">))</span>
+    <span class="n">table_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_data</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">table</span><span class="p">,</span> <span class="n">cdm_id</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;.psv&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">table_file</span><span class="p">):</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Table file not found </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table_file</span><span class="p">))</span>
+        <span class="k">return</span>
+    <span class="n">df_header</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">table_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="n">DELIMITER</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">READ_COLS_HDR</span><span class="p">,</span>
+                            <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;report_timestamp&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">DTYPES_HDR</span><span class="p">)</span>
+    <span class="n">df_header</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;report_id&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">qc_report</span><span class="p">:</span>
+        <span class="c1"># locs_ok = df_header.loc[df_header[&#39;report_quality&#39;].isin([ int(x) for x in qc_report ])].index</span>
+        <span class="n">df_header</span> <span class="o">=</span> <span class="n">df_header</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_header</span><span class="p">[</span><span class="s1">&#39;report_quality&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">qc_report</span><span class="p">])]</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">date_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">df_header</span><span class="p">[</span><span class="s1">&#39;report_timestamp&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">df_header</span><span class="p">[</span><span class="s1">&#39;report_timestamp&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="n">cdm_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+        <span class="n">date_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">fields</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># Aggregate on to and aggregate to a dict</span>
+    <span class="n">xarr_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="s1">&#39;&#39;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">AGGREGATIONS_HDR</span><span class="p">}</span>
+    <span class="k">for</span> <span class="n">agg</span> <span class="ow">in</span> <span class="n">AGGREGATIONS_HDR</span><span class="p">:</span>
+        <span class="n">xarr_dict</span><span class="p">[</span><span class="n">agg</span><span class="p">]</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">points</span><span class="p">(</span><span class="n">df_header</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude&#39;</span><span class="p">,</span>
+                                       <span class="n">DS_AGGREGATIONS_HDR</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">agg</span><span class="p">)(</span><span class="s1">&#39;crs&#39;</span><span class="p">))</span>
+    <span class="c1"># Merge aggs in a single xarr</span>
+    <span class="n">xarr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">merge</span><span class="p">([</span><span class="n">v</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">xarr_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+    <span class="n">xarr</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">date_time</span><span class="p">]})</span>
+    <span class="n">xarr</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="n">ENCODINGS_HDR</span>
+    <span class="c1"># Save to nc</span>
+
+    <span class="n">nc_dir</span> <span class="o">=</span> <span class="n">dir_data</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">nc_dir</span> <span class="k">else</span> <span class="n">nc_dir</span>
+    <span class="n">nc_name</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="p">[</span><span class="n">table</span><span class="p">,</span> <span class="n">cdm_id</span><span class="p">,</span> <span class="n">qc_report_extensions</span><span class="p">]))</span> <span class="o">+</span> <span class="s1">&#39;.nc&#39;</span>
+    <span class="n">xarr</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nc_dir</span><span class="p">,</span> <span class="n">nc_name</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="n">ENCODINGS_HDR</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+    <span class="n">obs_tables</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">properties</span><span class="o">.</span><span class="n">cdm_tables</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s1">&#39;header&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">obs_tables</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Processing table </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table</span><span class="p">))</span>
+        <span class="n">table_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_data</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">table</span><span class="p">,</span> <span class="n">cdm_id</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;.psv&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">table_file</span><span class="p">):</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Table file not found </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table_file</span><span class="p">))</span>
+            <span class="k">continue</span>
+        <span class="c1"># Read the data</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">table_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="n">DELIMITER</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">READ_COLS</span><span class="p">,</span>
+                         <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;date_time&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">DTYPES</span><span class="p">)</span>
+
+        <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;report_id&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">qc_report</span><span class="p">:</span>
+            <span class="c1"># was giving werror ...df.loc[df_header[&#39;report_quality&#39;].isin([ int(x) for x in qc_report ]))]</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df_header</span><span class="o">.</span><span class="n">index</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">]]</span>
+
+        <span class="k">if</span> <span class="n">qc</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;quality_flag&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">qc</span><span class="p">])]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">date_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date_time&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;date_time&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">fields</span> <span class="o">=</span> <span class="n">cdm_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+            <span class="n">date_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">fields</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># Aggregate on to and aggregate to a dict</span>
+        <span class="n">xarr_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="s1">&#39;&#39;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">AGGREGATIONS</span><span class="p">}</span>
+        <span class="k">for</span> <span class="n">agg</span> <span class="ow">in</span> <span class="n">AGGREGATIONS</span><span class="p">:</span>
+            <span class="n">xarr_dict</span><span class="p">[</span><span class="n">agg</span><span class="p">]</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">points</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude&#39;</span><span class="p">,</span>
+                                           <span class="n">DS_AGGREGATIONS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">agg</span><span class="p">)(</span><span class="s1">&#39;observation_value&#39;</span><span class="p">))</span>
+        <span class="c1"># Merge aggs in a single xarr</span>
+        <span class="n">xarr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">merge</span><span class="p">([</span><span class="n">v</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">xarr_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+        <span class="n">xarr</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">date_time</span><span class="p">]})</span>
+        <span class="n">xarr</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="n">ENCODINGS</span>
+        <span class="c1"># Save to nc</span>
+        <span class="n">nc_dir</span> <span class="o">=</span> <span class="n">dir_data</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">nc_dir</span> <span class="k">else</span> <span class="n">nc_dir</span>
+        <span class="n">nc_name</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="p">[</span><span class="n">table</span><span class="p">,</span> <span class="n">cdm_id</span><span class="p">,</span> <span class="n">qc_report_extensions</span><span class="p">,</span> <span class="n">qc_extensions</span><span class="p">]))</span> <span class="o">+</span> <span class="s1">&#39;.nc&#39;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">xarr</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nc_dir</span><span class="p">,</span> <span class="n">nc_name</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="n">ENCODINGS</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Error saving nc:&#39;</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Retrying in 6 seconds...&#39;</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+            <span class="n">xarr</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nc_dir</span><span class="p">,</span> <span class="n">nc_name</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="n">ENCODINGS</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span></div>
+
+
+<div class="viewcode-block" id="merge_from_monthly_nc"><a class="viewcode-back" href="../../../autoapi/cdm/gridded_stats/gridded_stats/index.html#cdm.gridded_stats.gridded_stats.merge_from_monthly_nc">[docs]</a><span class="k">def</span> <span class="nf">merge_from_monthly_nc</span><span class="p">(</span><span class="n">dir_data</span><span class="p">,</span> <span class="n">cdm_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nc_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">force_header</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dir_data:</span>
+<span class="sd">    cdm_id:</span>
+<span class="sd">    nc_dir:</span>
+<span class="sd">    force_header:</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    logging.error:</span>
+<span class="sd">    netcdf_file:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(levelname)s</span><span class="se">\t</span><span class="s1">[</span><span class="si">%(asctime)s</span><span class="s1">](</span><span class="si">%(filename)s</span><span class="s1">)</span><span class="se">\t</span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+                        <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="s1">&#39;header&#39;</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Processing table </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table</span><span class="p">))</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">table</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">cdm_id</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;.nc&#39;</span>
+    <span class="n">all_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_data</span><span class="p">,</span> <span class="n">pattern</span><span class="p">))</span>
+    <span class="n">process_header</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_files</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">force_header</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;No nc files found </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pattern</span><span class="p">))</span>
+            <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;No header nc files found </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pattern</span><span class="p">))</span>
+            <span class="n">process_header</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">process_header</span><span class="p">:</span>
+        <span class="n">all_files</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="c1"># Read all files to a single dataset</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">all_files</span><span class="p">,</span> <span class="n">concat_dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+        <span class="c1"># Aggregate each aggregation correspondingly....</span>
+        <span class="n">merged</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">merged</span><span class="p">[</span><span class="s1">&#39;counts&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;counts&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># Merge aggregations to a single xarr</span>
+        <span class="n">xarr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">merge</span><span class="p">([</span><span class="n">v</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">merged</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+        <span class="n">xarr</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="n">ENCODINGS_HDR</span>
+        <span class="c1"># Save to nc</span>
+        <span class="n">nc_dir</span> <span class="o">=</span> <span class="n">dir_data</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">nc_dir</span> <span class="k">else</span> <span class="n">nc_dir</span>
+        <span class="n">nc_name</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">table</span><span class="p">,</span> <span class="n">cdm_id</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;.nc&#39;</span>
+        <span class="n">xarr</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nc_dir</span><span class="p">,</span> <span class="n">nc_name</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="n">ENCODINGS_HDR</span><span class="p">)</span>
+
+    <span class="n">obs_tables</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">properties</span><span class="o">.</span><span class="n">cdm_tables</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s1">&#39;header&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">obs_tables</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Processing table </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table</span><span class="p">))</span>
+        <span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">table</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">cdm_id</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;.nc&#39;</span>
+        <span class="n">all_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_data</span><span class="p">,</span> <span class="n">pattern</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_files</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;No nc files found </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pattern</span><span class="p">))</span>
+            <span class="k">continue</span>
+        <span class="n">all_files</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="c1"># Read all files to a single dataset</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">all_files</span><span class="p">,</span> <span class="n">concat_dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+        <span class="c1"># Aggregate each aggregation correspondingly....</span>
+        <span class="n">merged</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">merged</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">merged</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">merged</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">merged</span><span class="p">[</span><span class="s1">&#39;counts&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;counts&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># Merge aggregations to a single xarr</span>
+        <span class="n">xarr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">merge</span><span class="p">([</span><span class="n">v</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">merged</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+        <span class="n">xarr</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="n">ENCODINGS</span>
+        <span class="c1"># Save to nc</span>
+        <span class="n">nc_dir</span> <span class="o">=</span> <span class="n">dir_data</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">nc_dir</span> <span class="k">else</span> <span class="n">nc_dir</span>
+        <span class="n">nc_name</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">table</span><span class="p">,</span> <span class="n">cdm_id</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;.nc&#39;</span>
+        <span class="n">xarr</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nc_dir</span><span class="p">,</span> <span class="n">nc_name</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="n">ENCODINGS</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+    <span class="k">return</span></div>
+
+
+<div class="viewcode-block" id="global_from_monthly_cdm"><a class="viewcode-back" href="../../../autoapi/cdm/gridded_stats/gridded_stats/index.html#cdm.gridded_stats.gridded_stats.global_from_monthly_cdm">[docs]</a><span class="k">def</span> <span class="nf">global_from_monthly_cdm</span><span class="p">(</span><span class="n">dir_data</span><span class="p">,</span> <span class="n">cdm_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="s1">&#39;Global&#39;</span><span class="p">,</span>
+                            <span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;lo_res&#39;</span><span class="p">,</span> <span class="n">nc_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">qc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">qc_report</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scratch_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                            <span class="n">tables</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dir_data:</span>
+<span class="sd">    cdm_id:</span>
+<span class="sd">    region:</span>
+<span class="sd">    resolution:</span>
+<span class="sd">    nc_dir:</span>
+<span class="sd">    qc:</span>
+<span class="sd">    qc_report:</span>
+<span class="sd">    scratch_dir:</span>
+<span class="sd">    tables:</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    logging.error:</span>
+<span class="sd">    netcdf_file:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(levelname)s</span><span class="se">\t</span><span class="s1">[</span><span class="si">%(asctime)s</span><span class="s1">](</span><span class="si">%(filename)s</span><span class="s1">)</span><span class="se">\t</span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+                        <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+    <span class="n">qc_extensions</span> <span class="o">=</span> <span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;qc&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">qc</span><span class="p">])</span> <span class="k">if</span> <span class="n">qc</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">qc_report_extensions</span> <span class="o">=</span> <span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;qcr&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">qc_report</span><span class="p">])</span> <span class="k">if</span> <span class="n">qc_report</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">qc_report</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;qc report extension&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">qc_report</span><span class="p">))</span>
+    <span class="c1"># Create canvas for aggregations  </span>
+    <span class="n">canvas</span> <span class="o">=</span> <span class="n">create_canvas</span><span class="p">(</span><span class="n">REGIONS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">region</span><span class="p">),</span> <span class="n">DEGREE_FACTOR_RESOLUTION</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">resolution</span><span class="p">))</span>
+
+    <span class="n">table</span> <span class="o">=</span> <span class="s1">&#39;header&#39;</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Processing table </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table</span><span class="p">))</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">table</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">cdm_id</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;.psv&#39;</span>
+    <span class="n">header_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_data</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span>
+    <span class="n">all_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">header_path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_files</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;No files found </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">header_path</span><span class="p">))</span>
+        <span class="k">return</span>
+
+    <span class="n">header_df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">header_path</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="n">DELIMITER</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">READ_COLS_HDR</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;report_timestamp&#39;</span><span class="p">],</span>
+                            <span class="n">dtype</span><span class="o">=</span><span class="n">DTYPES_HDR</span><span class="p">)</span>
+
+    <span class="n">scratch_dir</span> <span class="o">=</span> <span class="n">scratch_dir</span> <span class="k">if</span> <span class="n">scratch_dir</span> <span class="k">else</span> <span class="n">dir_data</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Saving hdr file to parquet in </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scratch_dir</span><span class="p">))</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">header_parq_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">scratch_dir</span><span class="p">,</span> <span class="s1">&#39;header.parq.tmp&#39;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">diag</span><span class="o">.</span><span class="n">ProgressBar</span><span class="p">(),</span> <span class="n">diag</span><span class="o">.</span><span class="n">Profiler</span><span class="p">()</span> <span class="k">as</span> <span class="n">prof</span><span class="p">,</span> <span class="n">diag</span><span class="o">.</span><span class="n">ResourceProfiler</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="k">as</span> <span class="n">rprof</span><span class="p">:</span>
+            <span class="n">header_df</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="n">header_parq_path</span><span class="p">)</span>
+        <span class="k">del</span> <span class="n">header_df</span>
+
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Reading header from parquet&#39;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">diag</span><span class="o">.</span><span class="n">ProgressBar</span><span class="p">(),</span> <span class="n">diag</span><span class="o">.</span><span class="n">Profiler</span><span class="p">()</span> <span class="k">as</span> <span class="n">prof</span><span class="p">,</span> <span class="n">diag</span><span class="o">.</span><span class="n">ResourceProfiler</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="k">as</span> <span class="n">rprof</span><span class="p">:</span>
+            <span class="n">header_df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">header_parq_path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">qc_report</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Subsetting header report_quality&#39;</span><span class="p">)</span>
+            <span class="n">header_df</span> <span class="o">=</span> <span class="n">header_df</span><span class="p">[</span><span class="n">header_df</span><span class="p">[</span><span class="s1">&#39;report_quality&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">qc_report</span><span class="p">)]</span>
+        <span class="n">header_df</span> <span class="o">=</span> <span class="n">header_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">header_df</span><span class="p">[</span><span class="s1">&#39;report_id&#39;</span><span class="p">])</span>
+        <span class="n">qcr_index</span> <span class="o">=</span> <span class="n">header_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+
+        <span class="c1"># Aggregate header abd save if general case or requested</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tables</span> <span class="ow">or</span> <span class="s1">&#39;header&#39;</span> <span class="ow">in</span> <span class="n">tables</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Aggregating header data (counts)&#39;</span><span class="p">)</span>
+            <span class="n">xarr_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="s1">&#39;&#39;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">AGGREGATIONS_HDR</span><span class="p">}</span>
+
+            <span class="k">for</span> <span class="n">agg</span> <span class="ow">in</span> <span class="n">AGGREGATIONS_HDR</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Applying </span><span class="si">{}</span><span class="s1"> aggregation&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">agg</span><span class="p">))</span>
+                <span class="n">xarr_dict</span><span class="p">[</span><span class="n">agg</span><span class="p">]</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">points</span><span class="p">(</span><span class="n">header_df</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude&#39;</span><span class="p">,</span>
+                                               <span class="n">DS_AGGREGATIONS_HDR</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">agg</span><span class="p">)(</span><span class="s1">&#39;crs&#39;</span><span class="p">))</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Removing parquet files&#39;</span><span class="p">)</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">header_parq_path</span><span class="p">)</span>
+            <span class="c1"># Merge aggs in a single xarr</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Merging and saving nc file&#39;</span><span class="p">)</span>
+            <span class="n">xarr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">merge</span><span class="p">([</span><span class="n">v</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">xarr_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+            <span class="n">xarr</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="n">ENCODINGS_HDR</span>
+            <span class="c1"># Save to nc</span>
+            <span class="n">nc_dir</span> <span class="o">=</span> <span class="n">dir_data</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">nc_dir</span> <span class="k">else</span> <span class="n">nc_dir</span>
+            <span class="n">nc_name</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="p">[</span><span class="n">table</span><span class="p">,</span> <span class="n">cdm_id</span><span class="p">,</span> <span class="n">qc_report_extensions</span><span class="p">]))</span> <span class="o">+</span> <span class="s1">&#39;.nc&#39;</span>
+            <span class="n">xarr</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nc_dir</span><span class="p">,</span> <span class="n">nc_name</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="n">ENCODINGS_HDR</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">header_parq_path</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Error processing header tables&#39;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Removing parquet files&#39;</span><span class="p">)</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">header_parq_path</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">obs_tables</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">properties</span><span class="o">.</span><span class="n">cdm_tables</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s1">&#39;header&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">tables</span><span class="p">:</span>
+        <span class="n">obs_tables</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">obs_tables</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tables</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">obs_tables</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Processing table </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table</span><span class="p">))</span>
+        <span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">table</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">cdm_id</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;.psv&#39;</span>
+        <span class="n">table_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_data</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span>
+        <span class="n">all_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">table_path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_files</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Table </span><span class="si">{0}</span><span class="s1">. No files found </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">table_path</span><span class="p">))</span>
+            <span class="k">continue</span>
+
+        <span class="n">obs_df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">table_path</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="n">DELIMITER</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">READ_COLS</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;date_time&#39;</span><span class="p">],</span>
+                             <span class="n">dtype</span><span class="o">=</span><span class="n">DTYPES</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Saving obs file to parquet in </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scratch_dir</span><span class="p">))</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">obs_parq_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">scratch_dir</span><span class="p">,</span> <span class="n">table</span> <span class="o">+</span> <span class="s1">&#39;.parq.tmp&#39;</span><span class="p">)</span>
+            <span class="k">with</span> <span class="n">diag</span><span class="o">.</span><span class="n">ProgressBar</span><span class="p">(),</span> <span class="n">diag</span><span class="o">.</span><span class="n">Profiler</span><span class="p">()</span> <span class="k">as</span> <span class="n">prof</span><span class="p">,</span> <span class="n">diag</span><span class="o">.</span><span class="n">ResourceProfiler</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="k">as</span> <span class="n">rprof</span><span class="p">:</span>
+                <span class="n">obs_df</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="n">obs_parq_path</span><span class="p">)</span>
+            <span class="k">del</span> <span class="n">obs_df</span>
+            <span class="c1"># Read the data</span>
+            <span class="k">with</span> <span class="n">diag</span><span class="o">.</span><span class="n">ProgressBar</span><span class="p">(),</span> <span class="n">diag</span><span class="o">.</span><span class="n">Profiler</span><span class="p">()</span> <span class="k">as</span> <span class="n">prof</span><span class="p">,</span> <span class="n">diag</span><span class="o">.</span><span class="n">ResourceProfiler</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="k">as</span> <span class="n">rprof</span><span class="p">:</span>
+                <span class="n">obs_df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">obs_parq_path</span><span class="p">)</span>
+            <span class="n">obs_df</span> <span class="o">=</span> <span class="n">obs_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">obs_df</span><span class="p">[</span><span class="s1">&#39;report_id&#39;</span><span class="p">])</span>
+            <span class="n">qcr_index</span> <span class="o">=</span> <span class="n">qcr_index</span><span class="p">[</span><span class="n">qcr_index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">obs_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">compute</span><span class="p">())]</span>
+            <span class="n">obs_df</span> <span class="o">=</span> <span class="n">obs_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">qcr_index</span><span class="p">)]</span>
+            <span class="k">if</span> <span class="n">qc</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Subsetting by obs parameter quality flag&#39;</span><span class="p">)</span>
+                <span class="n">obs_df</span> <span class="o">=</span> <span class="n">obs_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">obs_df</span><span class="p">[</span><span class="s1">&#39;quality_flag&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">qc</span><span class="p">)]</span>
+
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Aggregating data&#39;</span><span class="p">)</span>
+            <span class="n">xarr_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="s1">&#39;&#39;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">AGGREGATIONS</span><span class="p">}</span>
+            <span class="k">for</span> <span class="n">agg</span> <span class="ow">in</span> <span class="n">AGGREGATIONS</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Applying </span><span class="si">{}</span><span class="s1"> aggregation&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">agg</span><span class="p">))</span>
+                <span class="n">xarr_dict</span><span class="p">[</span><span class="n">agg</span><span class="p">]</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">points</span><span class="p">(</span><span class="n">obs_df</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude&#39;</span><span class="p">,</span>
+                                               <span class="n">DS_AGGREGATIONS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">agg</span><span class="p">)(</span><span class="s1">&#39;observation_value&#39;</span><span class="p">))</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Removing parquet files&#39;</span><span class="p">)</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">obs_parq_path</span><span class="p">)</span>
+            <span class="c1"># Merge aggs in a single xarr</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Merging and saving nc file&#39;</span><span class="p">)</span>
+            <span class="n">xarr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">merge</span><span class="p">([</span><span class="n">v</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">xarr_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+            <span class="n">xarr</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="n">ENCODINGS</span>
+            <span class="c1"># Save to nc</span>
+            <span class="n">nc_name</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="p">[</span><span class="n">table</span><span class="p">,</span> <span class="n">cdm_id</span><span class="p">,</span> <span class="n">qc_report_extensions</span><span class="p">,</span> <span class="n">qc_extensions</span><span class="p">]))</span> <span class="o">+</span> <span class="s1">&#39;.nc&#39;</span>
+            <span class="n">xarr</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nc_dir</span><span class="p">,</span> <span class="n">nc_name</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="n">ENCODINGS_HDR</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Error processing table </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table</span><span class="p">),</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Removing parquet files&#39;</span><span class="p">)</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">obs_parq_path</span><span class="p">)</span>
+            <span class="k">return</span></div>
+
+<span class="c1"># TODO: this function is incomplete</span>
+<span class="c1"># def global_from_monthly_nc():</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#</span>
+<span class="c1">#     Returns</span>
+<span class="c1">#     -------</span>
+<span class="c1">#</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#     print(&#39;hi, not there yet&#39;)</span>
+<span class="c1">#     return</span>
+
+<span class="c1"># if __name__==&#39;__main__&#39;:</span>
+<span class="c1">#     kwargs = dict(arg.split(&#39;=&#39;) for arg in sys.argv[2:])</span>
+<span class="c1">#     if &#39;sections&#39; in kwargs.keys():</span>
+<span class="c1">#         kwargs.update({ &#39;sections&#39;: [ x.strip() for x in kwargs.get(&#39;sections&#39;).split(&quot;,&quot;)] })</span>
+<span class="c1">#     read(sys.argv[1],</span>
+<span class="c1">#          **kwargs) # kwargs</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

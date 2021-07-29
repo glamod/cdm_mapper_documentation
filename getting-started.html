@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Getting started &mdash; cdm-mapper v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How to register a new data model mapping" href="how-to-register-a-new-data-model-mapping.html" />
+    <link rel="prev" title="Tool set up" href="tool-set-up.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> cdm-mapper
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tool-set-up.html">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#install-mdf-reader-toolbox">4. Install <code class="docutils literal notranslate"><span class="pre">mdf_reader</span></code> toolbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#optional-step-install-jupyter-notebooks">5. Optional step: install jupyter notebooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#test-the-tool">1. Test the tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#read-a-sample-imma">2. Read a sample <code class="docutils literal notranslate"><span class="pre">.imma</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#map-this-data-to-a-cdm-build-for-the-same-deck">3. Map this data to a CDM build for the same deck</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#write-the-output">4. Write the output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-register-a-new-data-model-mapping.html">How to register a new data model mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdm-tables-mapping-files-and-descriptors.html">CDM tables mapping files and descriptors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cdm-tables-mapping-files-and-descriptors.html#descriptors">Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdm-tables-mapping-files-and-descriptors.html#mapping-sequence">Mapping sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdm-tables-mapping-files-and-descriptors.html#defining-mapping-functions">Defining mapping functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdm-tables-mapping-files-and-descriptors.html#code-tables">Code tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/cdm/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/cdm/index.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.common</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/gridded_stats/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.gridded_stats</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/lib/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.lib</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/mapper/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.mapper</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/table_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/table_writer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_writer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/cdm/index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.properties</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/cdm/index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/index.html#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">cdm-mapper</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Getting started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/getting-started.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<span id="id1"></span><h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="test-the-tool">
+<h2>1. Test the tool<a class="headerlink" href="#test-the-tool" title="Permalink to this headline">¶</a></h2>
+<p>You can test the tool very easy by just calling both modules installed, the mdf_reader and the cdm. For this you need to run the following code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;/path_to_folder_directory_containing_the_cdm_and_mdf_reader_folder/&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">cdm</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">mdf_reader</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If there is no error everything went well in the installation!</p>
+</div>
+<div class="section" id="read-a-sample-imma">
+<h2>2. Read a sample <code class="docutils literal notranslate"><span class="pre">.imma</span></code><a class="headerlink" href="#read-a-sample-imma" title="Permalink to this headline">¶</a></h2>
+<p>Read a file from the folder <code class="docutils literal notranslate"><span class="pre">~/mdf_reader/test/data/</span></code> via the following code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">schema</span> <span class="o">=</span> <span class="s1">&#39;imma1_d704&#39;</span>
+<span class="n">data_file_path</span> <span class="o">=</span> <span class="s1">&#39;~/mdf_reader/test/data/125-704_1879-01_subset.imma&#39;</span>
+<span class="n">data_raw</span> <span class="o">=</span> <span class="n">mdf_reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">data_file_path</span><span class="p">,</span> <span class="n">data_model</span> <span class="o">=</span> <span class="n">schema</span><span class="p">)</span>
+<span class="n">attributes</span> <span class="o">=</span> <span class="n">data_raw</span><span class="o">.</span><span class="n">atts</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This <code class="docutils literal notranslate"><span class="pre">data_raw</span></code> and its <code class="docutils literal notranslate"><span class="pre">attributes</span></code> will be the input to the <a class="reference internal" href="autoapi/cdm/mapper/mapper/index.html#cdm.mapper.mapper.map_model" title="cdm.mapper.mapper.map_model"><code class="xref py py-func docutils literal notranslate"><span class="pre">cdm.mapper.mapper.map_model()</span></code></a> function.</p>
+</div>
+<div class="section" id="map-this-data-to-a-cdm-build-for-the-same-deck">
+<h2>3. Map this data to a CDM build for the same deck<a class="headerlink" href="#map-this-data-to-a-cdm-build-for-the-same-deck" title="Permalink to this headline">¶</a></h2>
+<p>In this case deck 704: US Marine Meteorological Journal collection of data code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name_of_model</span> <span class="o">=</span> <span class="s1">&#39;icoads_r3000_d704&#39;</span>
+
+<span class="n">cdm_dict</span> <span class="o">=</span> <span class="n">cdm</span><span class="o">.</span><span class="n">map_model</span><span class="p">(</span><span class="n">name_of_model</span><span class="p">,</span> <span class="n">data_raw</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span>
+                         <span class="n">cdm_subset</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">log_level</span> <span class="o">=</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="write-the-output">
+<h2>4. Write the output<a class="headerlink" href="#write-the-output" title="Permalink to this headline">¶</a></h2>
+<p>This writes the output to an ascii file with a pipe delimited format using the following function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cdm</span><span class="o">.</span><span class="n">cdm_to_ascii</span><span class="p">(</span><span class="n">cdm_dict</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="n">extension</span> <span class="o">=</span> <span class="s1">&#39;psv&#39;</span><span class="p">,</span> <span class="n">null_label</span> <span class="o">=</span> <span class="s1">&#39;null&#39;</span><span class="p">,</span> <span class="n">out_dir</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">suffix</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">prefix</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">log_level</span> <span class="o">=</span> <span class="s1">&#39;INFO&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For more details and an overview of the tool check out the following python notebook:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://git.noc.ac.uk/brecinosrivas/cdm-mapper/-/blob/master/docs/notebooks/CDM_mapper_example_deck704.ipynb">CDM mapper example</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="how-to-register-a-new-data-model-mapping.html" class="btn btn-neutral float-right" title="How to register a new data model mapping" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="tool-set-up.html" class="btn btn-neutral float-left" title="Tool set up" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

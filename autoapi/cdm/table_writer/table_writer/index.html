@@ -1,0 +1,541 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cdm.table_writer.table_writer &mdash; cdm-mapper v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> cdm-mapper
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../tool-set-up.html">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#install-mdf-reader-toolbox">4. Install <code class="docutils literal notranslate"><span class="pre">mdf_reader</span></code> toolbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#optional-step-install-jupyter-notebooks">5. Optional step: install jupyter notebooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../getting-started.html#test-the-tool">1. Test the tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../getting-started.html#read-a-sample-imma">2. Read a sample <code class="docutils literal notranslate"><span class="pre">.imma</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../getting-started.html#map-this-data-to-a-cdm-build-for-the-same-deck">3. Map this data to a CDM build for the same deck</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../getting-started.html#write-the-output">4. Write the output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how-to-register-a-new-data-model-mapping.html">How to register a new data model mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html">CDM tables mapping files and descriptors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html#descriptors">Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html#mapping-sequence">Mapping sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html#defining-mapping-functions">Defining mapping functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html#code-tables">Code tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.common</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../gridded_stats/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.gridded_stats</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../lib/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.lib</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../mapper/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.mapper</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../table_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_reader</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_writer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.properties</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../index.html#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">cdm-mapper</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_writer.table_writer</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/autoapi/cdm/table_writer/table_writer/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cdm.table_writer.table_writer">
+<span id="cdm-table-writer-table-writer"></span><h1><a class="reference internal" href="#module-cdm.table_writer.table_writer" title="cdm.table_writer.table_writer"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_writer.table_writer</span></code></a><a class="headerlink" href="#module-cdm.table_writer.table_writer" title="Permalink to this headline">¶</a></h1>
+<p>Created on Thu Apr 11 13:45:38 2019</p>
+<p>Exports tables written in the C3S Climate Data Store Common Data Model (CDM) format to ascii files,
+The tables format is contained in a python dictionary, stored as an attribute in a pandas.DataFrame
+(or pd.io.parsers.TextFileReader).</p>
+<p>This module uses a set of printer functions to “print” element values to a
+string object before exporting them to a final ascii file.</p>
+<p>Each of the CDM table element’s has a data type (pseudo-sql as defined in the CDM documentation) which defines
+which printer function needs to be used.</p>
+<p>Numeric data types are printed with an specific number of decimal places, defined in the data element attributes. This
+can vary according to each CDM, element, imodel and mapping .json file. If this is not defined in the input attributes
+of the imodel, the number of decimal places used comes from a default tool defined in properties.py</p>
+<p>&#64;author: iregon</p>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.table_writer.table_writer.print_integer" title="cdm.table_writer.table_writer.print_integer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_integer</span></code></a>(data, null_label)</p></td>
+<td><p>Prints all elements that have ‘int’ as type attribute</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.table_writer.table_writer.print_float" title="cdm.table_writer.table_writer.print_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_float</span></code></a>(data, null_label, decimal_places=None)</p></td>
+<td><p>Prints all elements that have ‘float’ as type attribute</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.table_writer.table_writer.print_datetime" title="cdm.table_writer.table_writer.print_datetime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_datetime</span></code></a>(data, null_label)</p></td>
+<td><p>Print datetime objects in the format: “%Y-%m-%d %H:%M:%S”</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.table_writer.table_writer.print_varchar" title="cdm.table_writer.table_writer.print_varchar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_varchar</span></code></a>(data, null_label)</p></td>
+<td><p>Prints string elements</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.table_writer.table_writer.print_integer_array" title="cdm.table_writer.table_writer.print_integer_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_integer_array</span></code></a>(data, null_label)</p></td>
+<td><p>Prints a series of integer objects as array</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.table_writer.table_writer.print_float_array" title="cdm.table_writer.table_writer.print_float_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_float_array</span></code></a>(data, null_label, decimal_places=None)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.table_writer.table_writer.print_datetime_array" title="cdm.table_writer.table_writer.print_datetime_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_datetime_array</span></code></a>(data, null_label)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.table_writer.table_writer.print_varchar_array" title="cdm.table_writer.table_writer.print_varchar_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_varchar_array</span></code></a>(data, null_label)</p></td>
+<td><p>Prints a series of string objects as array</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.table_writer.table_writer.print_integer_array_i" title="cdm.table_writer.table_writer.print_integer_array_i"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_integer_array_i</span></code></a>(row, null_label=None)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param row</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.table_writer.table_writer.print_varchar_array_i" title="cdm.table_writer.table_writer.print_varchar_array_i"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_varchar_array_i</span></code></a>(row, null_label=None)</p></td>
+<td><p>NEEDS DOCUMENTING</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.table_writer.table_writer.table_to_ascii" title="cdm.table_writer.table_writer.table_to_ascii"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table_to_ascii</span></code></a>(table, table_atts, delimiter='|', null_label='null', cdm_complete=True, filename=None, full_table=True, log_level='INFO')</p></td>
+<td><p>Exports a cdm table to an ascii file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.table_writer.table_writer.cdm_to_ascii" title="cdm.table_writer.table_writer.cdm_to_ascii"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cdm_to_ascii</span></code></a>(cdm, delimiter='|', null_label='null', cdm_complete=True, extension='psv', out_dir=None, suffix=None, prefix=None, log_level='INFO')</p></td>
+<td><p>Exports a complete cdm file with multiple tables to an ascii file.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.table_writer.table_writer.module_path" title="cdm.table_writer.table_writer.module_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">module_path</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.table_writer.table_writer.printers" title="cdm.table_writer.table_writer.printers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">printers</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.table_writer.table_writer.iprinters_kwargs" title="cdm.table_writer.table_writer.iprinters_kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iprinters_kwargs</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="cdm.table_writer.table_writer.module_path">
+<code class="sig-name descname"><span class="pre">module_path</span></code><a class="reference internal" href="../../../../_modules/cdm/table_writer/table_writer.html#module_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.table_writer.table_writer.module_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="cdm.table_writer.table_writer.print_integer">
+<code class="sig-name descname"><span class="pre">print_integer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_label</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cdm/table_writer/table_writer.html#print_integer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.table_writer.table_writer.print_integer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints all elements that have ‘int’ as type attribute
+:param data:
+:type data: data tables to print
+:param null_label:
+:type null_label: specified how nan are represented</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>data</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>data as int type</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cdm.table_writer.table_writer.print_float">
+<code class="sig-name descname"><span class="pre">print_float</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimal_places</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cdm/table_writer/table_writer.html#print_float"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.table_writer.table_writer.print_float" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints all elements that have ‘float’ as type attribute
+:param data:
+:type data: data tables to print
+:param null_label:
+:type null_label: specified how nan are represented
+:param decimal_places:
+:type decimal_places: number of decimal places</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>data</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>data as float type</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cdm.table_writer.table_writer.print_datetime">
+<code class="sig-name descname"><span class="pre">print_datetime</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_label</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cdm/table_writer/table_writer.html#print_datetime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.table_writer.table_writer.print_datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print datetime objects in the format: “%Y-%m-%d %H:%M:%S”
+:param data:
+:type data: date time elements
+:param null_label:
+:type null_label: specified how nan are represented</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>data</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>data as datetime objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cdm.table_writer.table_writer.print_varchar">
+<code class="sig-name descname"><span class="pre">print_varchar</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_label</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cdm/table_writer/table_writer.html#print_varchar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.table_writer.table_writer.print_varchar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints string elements
+:param data:
+:type data: data tables to print
+:param null_label:
+:type null_label: specified how nan are represented</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>data</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>data as string objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cdm.table_writer.table_writer.print_integer_array">
+<code class="sig-name descname"><span class="pre">print_integer_array</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_label</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cdm/table_writer/table_writer.html#print_integer_array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.table_writer.table_writer.print_integer_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a series of integer objects as array
+:param data:
+:type data: data tables to print
+:param null_label:
+:type null_label: specified how nan are represented</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>data</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>array of int objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cdm.table_writer.table_writer.print_float_array">
+<code class="sig-name descname"><span class="pre">print_float_array</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimal_places</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cdm/table_writer/table_writer.html#print_float_array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.table_writer.table_writer.print_float_array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="cdm.table_writer.table_writer.print_datetime_array">
+<code class="sig-name descname"><span class="pre">print_datetime_array</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_label</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cdm/table_writer/table_writer.html#print_datetime_array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.table_writer.table_writer.print_datetime_array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="cdm.table_writer.table_writer.print_varchar_array">
+<code class="sig-name descname"><span class="pre">print_varchar_array</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_label</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cdm/table_writer/table_writer.html#print_varchar_array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.table_writer.table_writer.print_varchar_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a series of string objects as array
+:param data:
+:type data: data tables to print
+:param null_label:
+:type null_label: specified how nan are represented</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="cdm.table_writer.table_writer.printers">
+<code class="sig-name descname"><span class="pre">printers</span></code><a class="reference internal" href="../../../../_modules/cdm/table_writer/table_writer.html#printers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.table_writer.table_writer.printers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cdm.table_writer.table_writer.iprinters_kwargs">
+<code class="sig-name descname"><span class="pre">iprinters_kwargs</span></code><a class="reference internal" href="../../../../_modules/cdm/table_writer/table_writer.html#iprinters_kwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.table_writer.table_writer.iprinters_kwargs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="cdm.table_writer.table_writer.print_integer_array_i">
+<code class="sig-name descname"><span class="pre">print_integer_array_i</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cdm/table_writer/table_writer.html#print_integer_array_i"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.table_writer.table_writer.print_integer_array_i" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> – </p></li>
+<li><p><strong>null_label</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cdm.table_writer.table_writer.print_varchar_array_i">
+<code class="sig-name descname"><span class="pre">print_varchar_array_i</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cdm/table_writer/table_writer.html#print_varchar_array_i"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.table_writer.table_writer.print_varchar_array_i" title="Permalink to this definition">¶</a></dt>
+<dd><p>NEEDS DOCUMENTING
+:param row:
+:param null_label:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cdm.table_writer.table_writer.table_to_ascii">
+<code class="sig-name descname"><span class="pre">table_to_ascii</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_atts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'|'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'null'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cdm_complete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_table</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INFO'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cdm/table_writer/table_writer.html#table_to_ascii"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.table_writer.table_writer.table_to_ascii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exports a cdm table to an ascii file.
+Exports tables written in the C3S Climate Data Store Common Data Model (CDM) format to ascii files.
+The tables format is contained in a python dictionary, stored as an attribute in a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>
+(or <code class="docutils literal notranslate"><span class="pre">pd.io.parsers.TextFileReader</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> – pandas.Dataframe to export</p></li>
+<li><p><strong>table_atts</strong> (<em>attributes of the pandas.Dataframe stored as a python dictionary.</em>) – This contains all element names, characteristics and types encoding,
+as well as other characteristics e.g. decimal places, etc.</p></li>
+<li><p><strong>delimiter</strong> – default ‘|’</p></li>
+<li><p><strong>null_label</strong> – specified how nan are represented</p></li>
+<li><p><strong>cdm_complete</strong> (<em>if we export the entire set of tables.</em>) – default is <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>filename</strong> – the name of the file to stored the data</p></li>
+<li><p><strong>full_table</strong> – if we export a single table</p></li>
+<li><p><strong>log_level</strong> – level of logging information to be saved</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Saves cdm tables as ascii files</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cdm.table_writer.table_writer.cdm_to_ascii">
+<code class="sig-name descname"><span class="pre">cdm_to_ascii</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cdm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'|'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'null'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cdm_complete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'psv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INFO'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cdm/table_writer/table_writer.html#cdm_to_ascii"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.table_writer.table_writer.cdm_to_ascii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exports a complete cdm file with multiple tables to an ascii file.
+Exports a complete cdm file with multiple tables written in the C3S Climate Data Store Common Data Model (CDM)
+format to ascii files.
+The tables format is contained in a python dictionary, stored as an attribute in a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>
+(or <code class="docutils literal notranslate"><span class="pre">pd.io.parsers.TextFileReader</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cdm</strong> – common data model tables to export</p></li>
+<li><p><strong>delimiter</strong> – default ‘|’</p></li>
+<li><p><strong>null_label</strong> – specified how nan are represented</p></li>
+<li><p><strong>cdm_complete</strong> – extract the entire cdm file</p></li>
+<li><p><strong>extension</strong> – default ‘psv’</p></li>
+<li><p><strong>out_dir</strong> – where to stored the ascii file</p></li>
+<li><p><strong>suffix</strong> – file suffix</p></li>
+<li><p><strong>prefix</strong> – file prefix</p></li>
+<li><p><strong>log_level</strong> – level of logging information</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Saves the cdm tables as ascii files in the given directory with a psv extension.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

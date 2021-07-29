@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cdm.lib.tables.tables_hdlr &mdash; cdm-mapper v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> cdm-mapper
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tool-set-up.html">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#install-mdf-reader-toolbox">4. Install <code class="docutils literal notranslate"><span class="pre">mdf_reader</span></code> toolbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#optional-step-install-jupyter-notebooks">5. Optional step: install jupyter notebooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../getting-started.html#test-the-tool">1. Test the tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../getting-started.html#read-a-sample-imma">2. Read a sample <code class="docutils literal notranslate"><span class="pre">.imma</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../getting-started.html#map-this-data-to-a-cdm-build-for-the-same-deck">3. Map this data to a CDM build for the same deck</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../getting-started.html#write-the-output">4. Write the output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how-to-register-a-new-data-model-mapping.html">How to register a new data model mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html">CDM tables mapping files and descriptors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html#descriptors">Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html#mapping-sequence">Mapping sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html#defining-mapping-functions">Defining mapping functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html#code-tables">Code tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../autoapi/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../autoapi/cdm/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../autoapi/cdm/index.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../autoapi/cdm/common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.common</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../autoapi/cdm/gridded_stats/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.gridded_stats</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../autoapi/cdm/lib/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.lib</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../autoapi/cdm/mapper/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.mapper</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../autoapi/cdm/table_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../autoapi/cdm/table_writer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_writer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../autoapi/cdm/index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../autoapi/cdm/properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.properties</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../autoapi/cdm/index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../autoapi/cdm/index.html#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">cdm-mapper</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cdm.lib.tables.tables_hdlr</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cdm.lib.tables.tables_hdlr</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Created on Thu Apr 11 13:45:38 2019</span>
+
+<span class="sd">Module to handle C3S Climate Data Store Common Data Model (CMD) tables within</span>
+<span class="sd">the cdm tool.</span>
+
+<span class="sd">@author: iregon</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># we remove python2 portability regarding OrderedDictionaries:</span>
+<span class="c1"># from collections import OrderedDict</span>
+<span class="c1"># This is because python2 dictionaries do not keep key insertion order: this should only matter creating final tables</span>
+<span class="c1"># tables[key] = json.load(json_file, object_pairs_hook=OrderedDict)</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">from</span> <span class="nn">cdm.common</span> <span class="kn">import</span> <span class="n">logging_hdlr</span>
+<span class="kn">from</span> <span class="nn">cdm</span> <span class="kn">import</span> <span class="n">properties</span>
+
+<div class="viewcode-block" id="module_path"><a class="viewcode-back" href="../../../../autoapi/cdm/lib/tables/tables_hdlr/index.html#cdm.lib.tables.tables_hdlr.module_path">[docs]</a><span class="n">module_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span></div>
+<div class="viewcode-block" id="table_path"><a class="viewcode-back" href="../../../../autoapi/cdm/lib/tables/tables_hdlr/index.html#cdm.lib.tables.tables_hdlr.table_path">[docs]</a><span class="n">table_path</span> <span class="o">=</span> <span class="n">module_path</span></div>
+
+
+<div class="viewcode-block" id="load_tables"><a class="viewcode-back" href="../../../../autoapi/cdm/lib/tables/tables_hdlr/index.html#cdm.lib.tables.tables_hdlr.load_tables">[docs]</a><span class="k">def</span> <span class="nf">load_tables</span><span class="p">(</span><span class="n">log_level</span><span class="o">=</span><span class="s1">&#39;DEBUG&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    NEEDS DOCUMENTING</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    log_level:</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    logger.error:</span>
+<span class="sd">    tables:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging_hdlr</span><span class="o">.</span><span class="n">init_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">log_level</span><span class="p">)</span>
+    <span class="n">table_paths</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">table_path</span><span class="p">,</span> <span class="s1">&#39;*.json&#39;</span><span class="p">))</span>
+    <span class="n">table_paths</span> <span class="o">=</span> <span class="p">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">table_paths</span><span class="p">)}</span>
+
+    <span class="n">observation_tables</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">properties</span><span class="o">.</span><span class="n">cdm_tables</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;observations-&#39;</span><span class="p">)]</span>
+    <span class="c1"># Make a copy from the generic observations table for each to the observations</span>
+    <span class="c1"># table defined in properties</span>
+    <span class="n">observation_path</span> <span class="o">=</span> <span class="n">table_paths</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;observations&#39;</span><span class="p">)</span>
+    <span class="n">shuss</span> <span class="o">=</span> <span class="n">table_paths</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;observations&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">table_paths</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">observation_table</span><span class="p">:</span> <span class="n">observation_path</span> <span class="k">for</span> <span class="n">observation_table</span> <span class="ow">in</span> <span class="n">observation_tables</span><span class="p">})</span>
+
+    <span class="n">tables</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">table_paths</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">table_paths</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">))</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+                <span class="n">tables</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Could not load table </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">return</span> <span class="n">tables</span></div>
+
+
+<span class="c1"># cdm elements dtypes</span>
+<span class="c1"># Mail sent may 7th to Dave. Are the types there real SQL types, or just approximations?</span>
+<span class="c1"># Numeric type in table definition not useful here to define floats with a specific precision</span>
+<span class="c1"># We should be able to use those definitions. Keep in mind that arrays are object type in pandas!</span>
+<span class="c1"># Remember any int and float (int, numeric) need to be tied for the parser!!!!</span>
+<span class="c1"># Also datetimes!</span>
+<span class="c1"># Until CDM table definition gets clarified:</span>
+<span class="c1"># We map from cdm table definition types to those in properties.pandas_dtypes.get(&#39;from_sql&#39;), else: &#39;object&#39;</span>
+<span class="c1"># We update to df column dtype if is of float type</span>
+
+
+<div class="viewcode-block" id="from_glamod"><a class="viewcode-back" href="../../../../autoapi/cdm/lib/tables/tables_hdlr/index.html#cdm.lib.tables.tables_hdlr.from_glamod">[docs]</a><span class="k">def</span> <span class="nf">from_glamod</span><span class="p">(</span><span class="n">table_filename</span><span class="p">,</span> <span class="n">gitlinkroot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">element_col</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">type_col</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">field_separator</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">skip_lines</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get tables from GLAMOD Git repo and format to nested dictionary with: ``{cdm_name: {&#39;data_type&#39;:value}}``</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    table_filename: table filename in repo directory</span>
+<span class="sd">    gitlinkroot: url to directory where tables are stored</span>
+<span class="sd">    element_col: column with element names (first is 1)</span>
+<span class="sd">    type_col: column with element data typs (first is 1)</span>
+<span class="sd">    field_separator: tab as default</span>
+<span class="sd">    skip_lines: numbers of lines to skip</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    NEEDS DOCUMENTING</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1">#</span>
+    <span class="c1"># table_filename: table filename in repo directory</span>
+    <span class="c1"># gitlinkroot: url to directory where tables are stored</span>
+    <span class="c1"># element_col: column with element names (first is 1)</span>
+    <span class="c1"># type_col: column with element data typs (first is 1)</span>
+    <span class="c1">#</span>
+    <span class="c1"># About data type definitions in this source (table_definitions in GitHub):</span>
+    <span class="c1"># it is not controlled vocab. and might change in the future!!!!</span>
+
+    <span class="c1"># Get data types and clean primary key, optional and whitespaces: &#39;(pk)&#39;, &#39;*&#39;</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging_hdlr</span><span class="o">.</span><span class="n">init_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s1">&#39;INFO&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">gitlinkroot</span><span class="p">:</span>
+        <span class="n">gitlinkroot</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/glamod/common_data_model/blob/master/table_definitions/&#39;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Setting gitlink root to default: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gitlinkroot</span><span class="p">))</span>
+
+    <span class="n">gitlinkroot</span> <span class="o">=</span> <span class="n">gitlinkroot</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;blob/&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">gitlinkroot</span> <span class="o">=</span> <span class="n">gitlinkroot</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;https://&#39;</span><span class="p">,</span> <span class="s1">&#39;https://raw.&#39;</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">gitlinkroot</span><span class="p">,</span> <span class="n">table_filename</span><span class="p">))</span>
+    <span class="n">field_separator</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(),</span> <span class="n">delimiter</span><span class="o">=</span><span class="n">field_separator</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">skip_lines</span><span class="p">):</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">x</span><span class="p">[</span><span class="n">element_col</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span> <span class="p">{</span><span class="s1">&#39;data_type&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="n">type_col</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;(pk)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()}</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">}</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

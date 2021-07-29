@@ -1,0 +1,15 @@
+:mod:`cdm.lib.tables`
+=====================
+
+.. py:module:: cdm.lib.tables
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   tables_hdlr/index.rst
+
+

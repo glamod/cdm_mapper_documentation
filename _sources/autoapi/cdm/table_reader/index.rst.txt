@@ -1,0 +1,15 @@
+:mod:`cdm.table_reader`
+=======================
+
+.. py:module:: cdm.table_reader
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   table_reader/index.rst
+
+

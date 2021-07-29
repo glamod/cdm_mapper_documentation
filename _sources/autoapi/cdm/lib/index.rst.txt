@@ -1,0 +1,16 @@
+:mod:`cdm.lib`
+==============
+
+.. py:module:: cdm.lib
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   mappings/index.rst
+   tables/index.rst
+
+

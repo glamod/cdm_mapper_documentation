@@ -1,0 +1,146 @@
+:mod:`cdm`
+==========
+
+.. py:module:: cdm
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   common/index.rst
+   gridded_stats/index.rst
+   lib/index.rst
+   mapper/index.rst
+   table_reader/index.rst
+   table_writer/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   properties/index.rst
+
+
+Package Contents
+----------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cdm.map_model
+   cdm.cdm_to_ascii
+   cdm.table_to_ascii
+   cdm.read_tables
+
+
+
+.. function:: map_model(imodel, data, data_atts, cdm_subset=None, log_level='INFO')
+
+   Calls the main mapping function _map()
+
+   :param imodel:
+                  1. A generic mapping from a defined data model, like IMMA1’s core and attachments.
+                  e.g. ``~/cdm-mapper/lib/mappings/icoads_r3000``
+
+                  2. A specific mapping from generic data model to CDM, like map a SID-DCK from IMMA1’s core and attachments to
+                  CDM in a specific way.
+                      e.g. ``~/cdm-mapper/lib/mappings/icoads_r3000_d704``
+   :type imodel: a data model that can be of several types.
+   :param data: e.g. a ``pandas.Dataframe`` or ``io.parsers.TextFileReader`` objects or in-memory text streams
+                (io.StringIO object).
+   :type data: input data to map.
+   :param data_atts: Type: string.
+   :type data_atts: dictionary with the {element_name:element_attributes} of the data.
+   :param cdm_subset: Defaults to the full set of CDM tables defined for the imodel. Type: list.
+   :type cdm_subset: subset of CDM model tables to map.
+   :param log_level: Defaults to ‘DEBUG’.
+                     Type string.
+   :type log_level: level of logging information to save.
+
+   :returns: * *cdm_tables* -- a python dictionary with the ``{cdm_table_name: cdm_table_object}`` pairs.
+             * *For more information look at the _map function.*
+
+
+.. function:: cdm_to_ascii(cdm, delimiter='|', null_label='null', cdm_complete=True, extension='psv', out_dir=None, suffix=None, prefix=None, log_level='INFO')
+
+   Exports a complete cdm file with multiple tables to an ascii file.
+   Exports a complete cdm file with multiple tables written in the C3S Climate Data Store Common Data Model (CDM)
+   format to ascii files.
+   The tables format is contained in a python dictionary, stored as an attribute in a ``pandas.DataFrame``
+   (or ``pd.io.parsers.TextFileReader``).
+
+   :param cdm: common data model tables to export
+   :param delimiter: default '|'
+   :param null_label: specified how nan are represented
+   :param cdm_complete: extract the entire cdm file
+   :param extension: default 'psv'
+   :param out_dir: where to stored the ascii file
+   :param suffix: file suffix
+   :param prefix: file prefix
+   :param log_level: level of logging information
+
+   :returns:
+   :rtype: Saves the cdm tables as ascii files in the given directory with a psv extension.
+
+
+.. function:: table_to_ascii(table, table_atts, delimiter='|', null_label='null', cdm_complete=True, filename=None, full_table=True, log_level='INFO')
+
+   Exports a cdm table to an ascii file.
+   Exports tables written in the C3S Climate Data Store Common Data Model (CDM) format to ascii files.
+   The tables format is contained in a python dictionary, stored as an attribute in a ``pandas.DataFrame``
+   (or ``pd.io.parsers.TextFileReader``).
+
+   :param table: pandas.Dataframe to export
+   :param table_atts: This contains all element names, characteristics and types encoding,
+                      as well as other characteristics e.g. decimal places, etc.
+   :type table_atts: attributes of the pandas.Dataframe stored as a python dictionary.
+   :param delimiter: default '|'
+   :param null_label: specified how nan are represented
+   :param cdm_complete: default is ``True``
+   :type cdm_complete: if we export the entire set of tables.
+   :param filename: the name of the file to stored the data
+   :param full_table: if we export a single table
+   :param log_level: level of logging information to be saved
+
+   :returns:
+   :rtype: Saves cdm tables as ascii files
+
+
+.. function:: read_tables(tb_path, tb_id, cdm_subset=None, delimiter='|', extension='psv', col_subset=None, log_level='INFO', na_values=[])
+
+   Reads CDM table like files from file system to a pandas data frame.
+
+   :param tb_path: path to the file
+   :param tb_id: any identifier including wildcards if required extension, defaulting to 'psv'
+   :param cdm_subset:
+                      - For multiple subsets of tables: This option will return a pandas.Dataframe that is multi-index at
+                      the columns, with (table-name, field) as column names. Tables are merged via the report_id field.
+                      - For a single table: the function returns a pandas.Dataframe with a simple indexing for the columns.
+   :type cdm_subset: specifies a subset of tables or a single table.
+   :param delimiter: default is '|'
+   :param extension: default is psv
+   :param col_subset:
+                      - For multiple sections of the tables:
+                          e.g ``col_subset = {table0:[columns],...tablen:[columns]}``
+                      - For a single section:
+                          e.g. ``list type object col_subset = [columns]``
+                          This variable assumes that the column names are all conform to the cdm field names in lib.tables/*.json
+   :type col_subset: a python dictionary specifying the section or sections of the file to read
+   :param log_level:
+   :type log_level: Level of logging messages to save
+   :param na_values:
+   :type na_values: specifies the format of NaN values
+
+   :returns: * **pandas.Dataframe** (*either the entire file or a subset of it.*)
+             * **logger.error** (*logs specific messages if there is any error.*)
+
+

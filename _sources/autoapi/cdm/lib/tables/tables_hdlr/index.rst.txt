@@ -1,0 +1,80 @@
+:mod:`cdm.lib.tables.tables_hdlr`
+=================================
+
+.. py:module:: cdm.lib.tables.tables_hdlr
+
+.. autoapi-nested-parse::
+
+   Created on Thu Apr 11 13:45:38 2019
+
+   Module to handle C3S Climate Data Store Common Data Model (CMD) tables within
+   the cdm tool.
+
+   @author: iregon
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cdm.lib.tables.tables_hdlr.load_tables
+   cdm.lib.tables.tables_hdlr.from_glamod
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   cdm.lib.tables.tables_hdlr.module_path
+   cdm.lib.tables.tables_hdlr.table_path
+
+
+.. data:: module_path
+   
+
+   
+
+.. data:: table_path
+   
+
+   
+
+.. function:: load_tables(log_level='DEBUG')
+
+   NEEDS DOCUMENTING
+
+   :param log_level:
+
+   :returns: * *logger.error*
+             * *tables*
+
+
+.. function:: from_glamod(table_filename, gitlinkroot=None, element_col=1, type_col=2, field_separator='\t', skip_lines=3)
+
+   Get tables from GLAMOD Git repo and format to nested dictionary with: ``{cdm_name: {'data_type':value}}``
+
+   :param table_filename:
+   :type table_filename: table filename in repo directory
+   :param gitlinkroot:
+   :type gitlinkroot: url to directory where tables are stored
+   :param element_col:
+   :type element_col: column with element names (first is 1)
+   :param type_col:
+   :type type_col: column with element data typs (first is 1)
+   :param field_separator:
+   :type field_separator: tab as default
+   :param skip_lines:
+   :type skip_lines: numbers of lines to skip
+
+   :returns:
+   :rtype: NEEDS DOCUMENTING
+
+

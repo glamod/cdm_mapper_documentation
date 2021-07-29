@@ -1,0 +1,545 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cdm.gridded_stats.gridded_stats &mdash; cdm-mapper v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> cdm-mapper
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../tool-set-up.html">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#install-mdf-reader-toolbox">4. Install <code class="docutils literal notranslate"><span class="pre">mdf_reader</span></code> toolbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#optional-step-install-jupyter-notebooks">5. Optional step: install jupyter notebooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../getting-started.html#test-the-tool">1. Test the tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../getting-started.html#read-a-sample-imma">2. Read a sample <code class="docutils literal notranslate"><span class="pre">.imma</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../getting-started.html#map-this-data-to-a-cdm-build-for-the-same-deck">3. Map this data to a CDM build for the same deck</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../getting-started.html#write-the-output">4. Write the output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how-to-register-a-new-data-model-mapping.html">How to register a new data model mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html">CDM tables mapping files and descriptors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html#descriptors">Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html#mapping-sequence">Mapping sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html#defining-mapping-functions">Defining mapping functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html#code-tables">Code tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.common</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.gridded_stats</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../lib/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.lib</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../mapper/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.mapper</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../table_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../table_writer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_writer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.properties</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../index.html#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">cdm-mapper</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.gridded_stats.gridded_stats</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/autoapi/cdm/gridded_stats/gridded_stats/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cdm.gridded_stats.gridded_stats">
+<span id="cdm-gridded-stats-gridded-stats"></span><h1><a class="reference internal" href="#module-cdm.gridded_stats.gridded_stats" title="cdm.gridded_stats.gridded_stats"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.gridded_stats.gridded_stats</span></code></a><a class="headerlink" href="#module-cdm.gridded_stats.gridded_stats" title="Permalink to this headline">¶</a></h1>
+<p>Created on Tue May 21 16:06:16 2019</p>
+<dl class="simple">
+<dt>Important note:</dt><dd><p>This script is not well documented and it seems to have incomplete work.</p>
+</dd>
+</dl>
+<p>Sets data descriptors on a monthly lat-lon box grid: counts, max, min, mean. And saves data to a netcdf file</p>
+<p>&#64;author: iregon</p>
+<dl>
+<dt>DEVS notes:</dt><dd><p>These functions using dask need to work with env1 in C3S r092019, since there are some issues with pyarrow and
+msgpack that had to be downgraded from 0.6.0 (default) to 0.5.6 after.</p>
+<p>File “msgpack/_unpacker.pyx”, line 187, in msgpack._cmsgpack.unpackb
+ValueError: 1281167 exceeds max_array_len(131072)
+See <a class="reference external" href="https://github.com/tensorpack/tensorpack/issues/1003">https://github.com/tensorpack/tensorpack/issues/1003</a></p>
+</dd>
+</dl>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.gridded_stats.gridded_stats.bounds" title="cdm.gridded_stats.gridded_stats.bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bounds</span></code></a>(x_range, y_range)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param x_range</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.gridded_stats.gridded_stats.create_canvas" title="cdm.gridded_stats.gridded_stats.create_canvas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_canvas</span></code></a>(bbox, degree_factor)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param bbox</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.gridded_stats.gridded_stats.from_cdm_monthly" title="cdm.gridded_stats.gridded_stats.from_cdm_monthly"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_cdm_monthly</span></code></a>(dir_data, cdm_id=None, region='Global', resolution='lo_res', nc_dir=None, qc=None, qc_report=None)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param dir_data</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.gridded_stats.gridded_stats.merge_from_monthly_nc" title="cdm.gridded_stats.gridded_stats.merge_from_monthly_nc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_from_monthly_nc</span></code></a>(dir_data, cdm_id=None, nc_dir=None, force_header=True)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param dir_data</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.gridded_stats.gridded_stats.global_from_monthly_cdm" title="cdm.gridded_stats.gridded_stats.global_from_monthly_cdm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">global_from_monthly_cdm</span></code></a>(dir_data, cdm_id=None, region='Global', resolution='lo_res', nc_dir=None, qc=None, qc_report=None, scratch_dir=None, tables=None)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param dir_data</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.gridded_stats.gridded_stats.REGIONS" title="cdm.gridded_stats.gridded_stats.REGIONS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REGIONS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.gridded_stats.gridded_stats.DEGREE_FACTOR_RESOLUTION" title="cdm.gridded_stats.gridded_stats.DEGREE_FACTOR_RESOLUTION"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DEGREE_FACTOR_RESOLUTION</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.gridded_stats.gridded_stats.DS_AGGREGATIONS" title="cdm.gridded_stats.gridded_stats.DS_AGGREGATIONS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DS_AGGREGATIONS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.gridded_stats.gridded_stats.AGGREGATIONS" title="cdm.gridded_stats.gridded_stats.AGGREGATIONS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AGGREGATIONS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.gridded_stats.gridded_stats.DS_AGGREGATIONS_HDR" title="cdm.gridded_stats.gridded_stats.DS_AGGREGATIONS_HDR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DS_AGGREGATIONS_HDR</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.gridded_stats.gridded_stats.AGGREGATIONS_HDR" title="cdm.gridded_stats.gridded_stats.AGGREGATIONS_HDR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AGGREGATIONS_HDR</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.gridded_stats.gridded_stats.ENCODINGS" title="cdm.gridded_stats.gridded_stats.ENCODINGS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ENCODINGS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.gridded_stats.gridded_stats.ENCODINGS_HDR" title="cdm.gridded_stats.gridded_stats.ENCODINGS_HDR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ENCODINGS_HDR</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.gridded_stats.gridded_stats.CDM_DTYPES" title="cdm.gridded_stats.gridded_stats.CDM_DTYPES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CDM_DTYPES</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.gridded_stats.gridded_stats.READ_COLS" title="cdm.gridded_stats.gridded_stats.READ_COLS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">READ_COLS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.gridded_stats.gridded_stats.DTYPES" title="cdm.gridded_stats.gridded_stats.DTYPES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DTYPES</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.gridded_stats.gridded_stats.READ_COLS_HDR" title="cdm.gridded_stats.gridded_stats.READ_COLS_HDR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">READ_COLS_HDR</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.gridded_stats.gridded_stats.DTYPES_HDR" title="cdm.gridded_stats.gridded_stats.DTYPES_HDR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DTYPES_HDR</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.gridded_stats.gridded_stats.DELIMITER" title="cdm.gridded_stats.gridded_stats.DELIMITER"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DELIMITER</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="cdm.gridded_stats.gridded_stats.REGIONS">
+<code class="sig-name descname"><span class="pre">REGIONS</span></code><a class="reference internal" href="../../../../_modules/cdm/gridded_stats/gridded_stats.html#REGIONS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.gridded_stats.gridded_stats.REGIONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cdm.gridded_stats.gridded_stats.DEGREE_FACTOR_RESOLUTION">
+<code class="sig-name descname"><span class="pre">DEGREE_FACTOR_RESOLUTION</span></code><a class="reference internal" href="../../../../_modules/cdm/gridded_stats/gridded_stats.html#DEGREE_FACTOR_RESOLUTION"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.gridded_stats.gridded_stats.DEGREE_FACTOR_RESOLUTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cdm.gridded_stats.gridded_stats.DS_AGGREGATIONS">
+<code class="sig-name descname"><span class="pre">DS_AGGREGATIONS</span></code><a class="reference internal" href="../../../../_modules/cdm/gridded_stats/gridded_stats.html#DS_AGGREGATIONS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.gridded_stats.gridded_stats.DS_AGGREGATIONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cdm.gridded_stats.gridded_stats.AGGREGATIONS">
+<code class="sig-name descname"><span class="pre">AGGREGATIONS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">['counts',</span> <span class="pre">'max',</span> <span class="pre">'min',</span> <span class="pre">'mean']</span></em><a class="reference internal" href="../../../../_modules/cdm/gridded_stats/gridded_stats.html#AGGREGATIONS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.gridded_stats.gridded_stats.AGGREGATIONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cdm.gridded_stats.gridded_stats.DS_AGGREGATIONS_HDR">
+<code class="sig-name descname"><span class="pre">DS_AGGREGATIONS_HDR</span></code><a class="reference internal" href="../../../../_modules/cdm/gridded_stats/gridded_stats.html#DS_AGGREGATIONS_HDR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.gridded_stats.gridded_stats.DS_AGGREGATIONS_HDR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cdm.gridded_stats.gridded_stats.AGGREGATIONS_HDR">
+<code class="sig-name descname"><span class="pre">AGGREGATIONS_HDR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">['counts']</span></em><a class="reference internal" href="../../../../_modules/cdm/gridded_stats/gridded_stats.html#AGGREGATIONS_HDR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.gridded_stats.gridded_stats.AGGREGATIONS_HDR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cdm.gridded_stats.gridded_stats.ENCODINGS">
+<code class="sig-name descname"><span class="pre">ENCODINGS</span></code><a class="reference internal" href="../../../../_modules/cdm/gridded_stats/gridded_stats.html#ENCODINGS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.gridded_stats.gridded_stats.ENCODINGS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cdm.gridded_stats.gridded_stats.ENCODINGS_HDR">
+<code class="sig-name descname"><span class="pre">ENCODINGS_HDR</span></code><a class="reference internal" href="../../../../_modules/cdm/gridded_stats/gridded_stats.html#ENCODINGS_HDR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.gridded_stats.gridded_stats.ENCODINGS_HDR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cdm.gridded_stats.gridded_stats.CDM_DTYPES">
+<code class="sig-name descname"><span class="pre">CDM_DTYPES</span></code><a class="reference internal" href="../../../../_modules/cdm/gridded_stats/gridded_stats.html#CDM_DTYPES"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.gridded_stats.gridded_stats.CDM_DTYPES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cdm.gridded_stats.gridded_stats.READ_COLS">
+<code class="sig-name descname"><span class="pre">READ_COLS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">['report_id',</span> <span class="pre">'latitude',</span> <span class="pre">'longitude',</span> <span class="pre">'observation_value',</span> <span class="pre">'date_time',</span> <span class="pre">'quality_flag']</span></em><a class="reference internal" href="../../../../_modules/cdm/gridded_stats/gridded_stats.html#READ_COLS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.gridded_stats.gridded_stats.READ_COLS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cdm.gridded_stats.gridded_stats.DTYPES">
+<code class="sig-name descname"><span class="pre">DTYPES</span></code><a class="reference internal" href="../../../../_modules/cdm/gridded_stats/gridded_stats.html#DTYPES"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.gridded_stats.gridded_stats.DTYPES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cdm.gridded_stats.gridded_stats.READ_COLS_HDR">
+<code class="sig-name descname"><span class="pre">READ_COLS_HDR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">['report_id',</span> <span class="pre">'latitude',</span> <span class="pre">'longitude',</span> <span class="pre">'crs',</span> <span class="pre">'report_timestamp',</span> <span class="pre">'report_quality']</span></em><a class="reference internal" href="../../../../_modules/cdm/gridded_stats/gridded_stats.html#READ_COLS_HDR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.gridded_stats.gridded_stats.READ_COLS_HDR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cdm.gridded_stats.gridded_stats.DTYPES_HDR">
+<code class="sig-name descname"><span class="pre">DTYPES_HDR</span></code><a class="reference internal" href="../../../../_modules/cdm/gridded_stats/gridded_stats.html#DTYPES_HDR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.gridded_stats.gridded_stats.DTYPES_HDR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cdm.gridded_stats.gridded_stats.DELIMITER">
+<code class="sig-name descname"><span class="pre">DELIMITER</span></code><em class="property"> <span class="pre">=</span> <span class="pre">|</span></em><a class="reference internal" href="../../../../_modules/cdm/gridded_stats/gridded_stats.html#DELIMITER"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.gridded_stats.gridded_stats.DELIMITER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="cdm.gridded_stats.gridded_stats.bounds">
+<code class="sig-name descname"><span class="pre">bounds</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_range</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cdm/gridded_stats/gridded_stats.html#bounds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.gridded_stats.gridded_stats.bounds" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_range</strong> – </p></li>
+<li><p><strong>y_range</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cdm.gridded_stats.gridded_stats.create_canvas">
+<code class="sig-name descname"><span class="pre">create_canvas</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bbox</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree_factor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cdm/gridded_stats/gridded_stats.html#create_canvas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.gridded_stats.gridded_stats.create_canvas" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bbox</strong> – </p></li>
+<li><p><strong>degree_factor</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>plot</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cdm.gridded_stats.gridded_stats.from_cdm_monthly">
+<code class="sig-name descname"><span class="pre">from_cdm_monthly</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cdm_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Global'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lo_res'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nc_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qc_report</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cdm/gridded_stats/gridded_stats.html#from_cdm_monthly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.gridded_stats.gridded_stats.from_cdm_monthly" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dir_data</strong> – </p></li>
+<li><p><strong>cdm_id</strong> – </p></li>
+<li><p><strong>region</strong> – </p></li>
+<li><p><strong>resolution</strong> – </p></li>
+<li><p><strong>nc_dir</strong> – </p></li>
+<li><p><strong>qc</strong> – </p></li>
+<li><p><strong>qc_report</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>logging.error</em></p></li>
+<li><p><em>netcdf_file</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cdm.gridded_stats.gridded_stats.merge_from_monthly_nc">
+<code class="sig-name descname"><span class="pre">merge_from_monthly_nc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cdm_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nc_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cdm/gridded_stats/gridded_stats.html#merge_from_monthly_nc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.gridded_stats.gridded_stats.merge_from_monthly_nc" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dir_data</strong> – </p></li>
+<li><p><strong>cdm_id</strong> – </p></li>
+<li><p><strong>nc_dir</strong> – </p></li>
+<li><p><strong>force_header</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>logging.error</em></p></li>
+<li><p><em>netcdf_file</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cdm.gridded_stats.gridded_stats.global_from_monthly_cdm">
+<code class="sig-name descname"><span class="pre">global_from_monthly_cdm</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cdm_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Global'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lo_res'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nc_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qc_report</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scratch_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cdm/gridded_stats/gridded_stats.html#global_from_monthly_cdm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.gridded_stats.gridded_stats.global_from_monthly_cdm" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dir_data</strong> – </p></li>
+<li><p><strong>cdm_id</strong> – </p></li>
+<li><p><strong>region</strong> – </p></li>
+<li><p><strong>resolution</strong> – </p></li>
+<li><p><strong>nc_dir</strong> – </p></li>
+<li><p><strong>qc</strong> – </p></li>
+<li><p><strong>qc_report</strong> – </p></li>
+<li><p><strong>scratch_dir</strong> – </p></li>
+<li><p><strong>tables</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>logging.error</em></p></li>
+<li><p><em>netcdf_file</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

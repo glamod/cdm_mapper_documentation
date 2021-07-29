@@ -1,0 +1,15 @@
+:mod:`cdm.gridded_stats`
+========================
+
+.. py:module:: cdm.gridded_stats
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   gridded_stats/index.rst
+
+

@@ -1,0 +1,147 @@
+:mod:`cdm.lib.mappings.mappings_hdlr`
+=====================================
+
+.. py:module:: cdm.lib.mappings.mappings_hdlr
+
+.. autoapi-nested-parse::
+
+   Created on Thu Apr 11 13:45:38 2019
+
+   Module to handle data models mappers or imodel's use to map meteorological variables to the C3S Climate Data Store
+   Common Data Model (CMD) tables. This module handles all mappers contained inside the tool
+
+   @author: iregon
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cdm.lib.mappings.mappings_hdlr.smart_dict
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cdm.lib.mappings.mappings_hdlr.dict_depth
+   cdm.lib.mappings.mappings_hdlr.expand_integer_range_key
+   cdm.lib.mappings.mappings_hdlr.get_functions_module_path
+   cdm.lib.mappings.mappings_hdlr.load_code_tables_maps
+   cdm.lib.mappings.mappings_hdlr.load_tables_maps
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   cdm.lib.mappings.mappings_hdlr.tool_name
+   cdm.lib.mappings.mappings_hdlr.module_path
+   cdm.lib.mappings.mappings_hdlr.module_tree
+
+
+.. data:: tool_name
+   :annotation: = cdm
+
+   
+
+.. data:: module_path
+   
+
+   
+
+.. data:: module_tree
+   
+
+   
+
+.. function:: dict_depth()
+
+   Finds the depth of a python dictionary
+
+   :returns:
+   :rtype: maximum dict depth
+
+
+.. class:: smart_dict(*args, **kwargs)
+
+
+   Bases: :py:obj:`dict`
+
+   Gets items from nested dictionaries.
+
+   :param dict:
+                - For simple dictionaries: ``smart_dict(dict)[key]``
+                - For nested dictionaries up to n levels
+                1. First level: can declare key as single element or in list
+                    e.g. ``smart_dict(dict)[[key]]``, ``smart_dict(dict)[key]``
+                2. Successive levels: keys in list from outer to inner, up to desired level
+                    e.g. ``smart_dict(dict)[[key1, key2,key3]]``, ``smart_dict(dict)[[key1, key2,key3,..keyn]]``
+   :type dict: python dictionary.
+
+   :returns: **None**
+   :rtype: if key or combination not found
+
+   .. method:: __getitem__(self, key)
+
+      NEEDS DOCUMENTING
+
+      :param self:
+      :param key:
+
+      :returns:
+      :rtype: val
+
+
+
+.. function:: expand_integer_range_key(d)
+
+   NEEDS DOCUMENTING
+
+   :param d:
+
+
+.. function:: get_functions_module_path(imodel, log_level='INFO')
+
+   NEEDS DOCUMENTING
+
+   :param imodel:
+   :param log_level:
+
+   :returns: * *logger.error*
+             * *imodel_functions*
+
+
+.. function:: load_code_tables_maps(imodel, codes_subset=None, log_level='INFO')
+
+   NEEDS DOCUMENTING
+
+   :param imodel:
+   :param codes_subset:
+   :param log_level:
+
+   :returns: * *logger.error*
+             * *codes*
+
+
+.. function:: load_tables_maps(imodel, cdm_subset=None, log_level='INFO')
+
+   NEEDS DOCUMENTING
+
+   :param imodel:
+   :param cdm_subset:
+   :param log_level:
+
+   :returns: * *logger.error*
+             * *maps*
+
+

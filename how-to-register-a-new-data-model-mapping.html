@@ -1,0 +1,319 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>How to register a new data model mapping &mdash; cdm-mapper v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="CDM tables mapping files and descriptors" href="cdm-tables-mapping-files-and-descriptors.html" />
+    <link rel="prev" title="Getting started" href="getting-started.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> cdm-mapper
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tool-set-up.html">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#install-mdf-reader-toolbox">4. Install <code class="docutils literal notranslate"><span class="pre">mdf_reader</span></code> toolbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#optional-step-install-jupyter-notebooks">5. Optional step: install jupyter notebooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#test-the-tool">1. Test the tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#read-a-sample-imma">2. Read a sample <code class="docutils literal notranslate"><span class="pre">.imma</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#map-this-data-to-a-cdm-build-for-the-same-deck">3. Map this data to a CDM build for the same deck</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#write-the-output">4. Write the output</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to register a new data model mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdm-tables-mapping-files-and-descriptors.html">CDM tables mapping files and descriptors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cdm-tables-mapping-files-and-descriptors.html#descriptors">Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdm-tables-mapping-files-and-descriptors.html#mapping-sequence">Mapping sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdm-tables-mapping-files-and-descriptors.html#defining-mapping-functions">Defining mapping functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdm-tables-mapping-files-and-descriptors.html#code-tables">Code tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/cdm/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/cdm/index.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.common</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/gridded_stats/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.gridded_stats</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/lib/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.lib</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/mapper/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.mapper</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/table_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/table_writer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_writer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/cdm/index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.properties</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/cdm/index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/index.html#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">cdm-mapper</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>How to register a new data model mapping</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/how-to-register-a-new-data-model-mapping.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-register-a-new-data-model-mapping">
+<span id="id1"></span><h1>How to register a new data model mapping<a class="headerlink" href="#how-to-register-a-new-data-model-mapping" title="Permalink to this headline">¶</a></h1>
+<p>Using <code class="docutils literal notranslate"><span class="pre">icoads_r3000</span></code> imodel as a reference, a data model (imodel) mapping can be understood in this context as:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>A generic mapping from a defined data model.</dt><dd><p>e.g. the IMMA data model (<code class="docutils literal notranslate"><span class="pre">imodel</span> <span class="pre">=</span> <span class="pre">icoads_r3000</span></code>), which in this case maps core ICOADS variables into the CDM format.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>A specific mapping from a generic data model.</dt><dd><p>e.g. the case of mapping a specific ICOADS collection, where the <code class="docutils literal notranslate"><span class="pre">imodel</span></code> is built for a specific source and deck (<code class="docutils literal notranslate"><span class="pre">imodel</span> <span class="pre">=</span> <span class="pre">imma1_sid-dck</span></code>).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>A combination of multiple data models in a single CDM mapping.</dt><dd><p>e.g. the case of mapping ICOADS.CORE variables and variables stored in the ICOADS supplemental data attachment (c99), this type of model is also source and deck dependent (<code class="docutils literal notranslate"><span class="pre">imodel</span> <span class="pre">=</span> <span class="pre">imma1_supp_model_sid-dck</span></code>).</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>This is a summary of the steps needed to add an imodel to the mapping tool:</p>
+<ol class="arabic simple">
+<li><p>Copy the template mapping structure in the mappings library directory (<code class="docutils literal notranslate"><span class="pre">~/cdm-mapper/lib/mappings/template</span></code>) to the same folder and re-name it according to the <code class="docutils literal notranslate"><span class="pre">imodel</span></code> that you are going to add:</p></li>
+</ol>
+<div class="figure align-default" id="id2">
+<a class="reference internal image-reference" href="_images/imodel_dir.png"><img alt="_images/imodel_dir.png" src="_images/imodel_dir.png" style="width: 100%;" /></a>
+<p class="caption"><span class="caption-text">Directory structure of an imodel, showing the <code class="docutils literal notranslate"><span class="pre">icoads_r3000</span></code> .imma data model as an example.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<div class="legend">
+<blockquote>
+<div><ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">imodel.py</span></code> module hosts the <code class="docutils literal notranslate"><span class="pre">mapping_functions</span></code> class. These the functions used by the tool to map imodel elements to CDM elements (if required). All transform functions have to be defined under this class, so the mapper tool can access them.</p></li>
+<li><p>Additionally, an <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file needs to be added, so python can recognise the imodel directory as a module and this can be use by the tool.</p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<ol class="arabic" start="2">
+<li><p>Create a copy of the <code class="docutils literal notranslate"><span class="pre">template.json</span></code> file for each of the <strong>CDM tables</strong> in your imodel. To access the <strong>CDM tables</strong> templates available in the tool type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_list</span> <span class="o">=</span> <span class="n">cdm</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">cdm_tables</span>
+</pre></div>
+</div>
+<p>Your imodel should be looking something like the figure above.</p>
+</li>
+<li><p>Edit the mapping files (<code class="docutils literal notranslate"><span class="pre">*.json</span></code>) and create the mappings to CDM elements (refer to <a class="reference internal" href="cdm-tables-mapping-files-and-descriptors.html#cdm-tables-mapping-files-and-descriptors"><span class="std std-ref">CDM tables mapping files and descriptors</span></a> for more information), this can be achieved using one of the following approaches:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Direct mapping from an imodel element.</p></li>
+<li><p>Direct mapping via <code class="docutils literal notranslate"><span class="pre">code_tables</span></code> that can take one or multiple imodel elements.</p></li>
+<li><p>Assignment of a default value.</p></li>
+<li><p>Any other mapping including any combination of the following can be achieved using functions defined in the <code class="docutils literal notranslate"><span class="pre">imodel.py</span></code> module:</p></li>
+</ul>
+<ol class="loweralpha simple">
+<li><p>imodel elements attributes</p></li>
+<li><p>parameterization with input keyword arguments</p></li>
+<li><p>one or multiple imodel elements</p></li>
+<li><p>transforming function from/to coded elements other than direct mapping with code tables can be defined here (i.e.: imodel key to CDM value or imodel value to CDM key)</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Create <a class="reference internal" href="cdm-tables-mapping-files-and-descriptors.html#cdm-code-tables"><span class="std std-ref">Code tables</span></a> to transform variables if these required a specific key to translate the information into the CDM.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Click on next for a detail description on steps 3 and 4.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>After finishing your new <code class="docutils literal notranslate"><span class="pre">imodel</span></code>, don’t forget to deactivate and then re-activate your python virtualenv or to reset your jupyter-notebook kernel, so the cdm tool recognises your new mapper. Alternatively you can pass to the main <code class="docutils literal notranslate"><span class="pre">cdm.map_model</span></code> function the directory path where you have stored your cdm imodel mapper (see API Reference for more information).</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="cdm-tables-mapping-files-and-descriptors.html" class="btn btn-neutral float-right" title="CDM tables mapping files and descriptors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="getting-started.html" class="btn btn-neutral float-left" title="Getting started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

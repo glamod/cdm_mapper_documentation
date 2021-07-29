@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>CDM-mapper toolbox documentation &mdash; cdm-mapper v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tool set up" href="tool-set-up.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> cdm-mapper
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tool-set-up.html">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#install-mdf-reader-toolbox">4. Install <code class="docutils literal notranslate"><span class="pre">mdf_reader</span></code> toolbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#optional-step-install-jupyter-notebooks">5. Optional step: install jupyter notebooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#test-the-tool">1. Test the tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#read-a-sample-imma">2. Read a sample <code class="docutils literal notranslate"><span class="pre">.imma</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#map-this-data-to-a-cdm-build-for-the-same-deck">3. Map this data to a CDM build for the same deck</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#write-the-output">4. Write the output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-register-a-new-data-model-mapping.html">How to register a new data model mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdm-tables-mapping-files-and-descriptors.html">CDM tables mapping files and descriptors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cdm-tables-mapping-files-and-descriptors.html#descriptors">Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdm-tables-mapping-files-and-descriptors.html#mapping-sequence">Mapping sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdm-tables-mapping-files-and-descriptors.html#defining-mapping-functions">Defining mapping functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdm-tables-mapping-files-and-descriptors.html#code-tables">Code tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/cdm/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/cdm/index.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.common</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/gridded_stats/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.gridded_stats</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/lib/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.lib</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/mapper/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.mapper</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/table_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/table_writer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_writer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/cdm/index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.properties</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/cdm/index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/cdm/index.html#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">cdm-mapper</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>CDM-mapper toolbox documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cdm-mapper-toolbox-documentation">
+<h1>CDM-mapper toolbox documentation<a class="headerlink" href="#cdm-mapper-toolbox-documentation" title="Permalink to this headline">¶</a></h1>
+<p>The <strong>cdm</strong> (cdm-mapper) is a <a class="reference external" href="https://www.python.org/download/releases/3.0/">python3</a> tool designed to map observed meteorological variables and its associated metadata from a data model (<a class="reference external" href="https://glamod.github.io/mdf_reader_documentation/data-models.html#">schema</a>) to the <a class="reference external" href="https://glamod.github.io/cdm-obs-documentation/#">C3S CDS Common Data Model (CDM)</a> format or <strong>imodel</strong> as called in this tool.</p>
+</div>
+<div class="section" id="tool-overview">
+<h1>Tool overview<a class="headerlink" href="#tool-overview" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-default" id="id5">
+<a class="reference internal image-reference" href="_images/imodel_diagram.svg"><img alt="_images/imodel_diagram.svg" src="_images/imodel_diagram.svg" width="100%" /></a>
+<p class="caption"><span class="caption-text">Simplified workflow of the main function in the tool</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="input-data">
+<h1>Input data<a class="headerlink" href="#input-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="imodel">
+<h2><code class="docutils literal notranslate"><span class="pre">imodel</span></code><a class="headerlink" href="#imodel" title="Permalink to this headline">¶</a></h2>
+<p>An <code class="docutils literal notranslate"><span class="pre">imodel</span></code> consist of a collection of <cite>.json</cite> files (or <a class="reference external" href="https://realpython.com/python-dicts/">python dictionaries</a>) and python functions (<code class="docutils literal notranslate"><span class="pre">imodel.py</span></code>) that specify how a given <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">pandas.DataFrame</a> containing marine meteorological data, should be organise and map to the <a class="reference external" href="https://glamod.github.io/cdm-obs-documentation/conceptual.html">CDM</a> format.</p>
+<p>The <a class="reference external" href="https://glamod.github.io/cdm-obs-documentation/conceptual.html">CDM</a> format splits meteorological reports into <strong>header</strong> and <strong>observational records</strong>, separating the data into different tables/files and column order. An <code class="docutils literal notranslate"><span class="pre">imodel</span></code> therefore consist of the following files:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">header.json</span></code>: maps variables in the data that can provide information about the source of each meteorological report (e.g. profile configuration, station configuration and source configuration)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">observations-variable.json</span></code>: this contains the mapping information for the observed variable and also important metadata information, like original value, original units. (e.g. <code class="docutils literal notranslate"><span class="pre">observations-at.json</span></code> will contain specific information about the sensor used to measure the air temperature, units, sensor height, etc)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">imodel.py</span></code>: is a python script containing a full set of transforming functions. Each function has a specific role, to transform a variable or a parameter into a format compatible with the CDM format (e.g. all temperatures in the CDM format should be given in Kelvin as stated in the <a class="reference external" href="https://glamod.github.io/cdm-obs-documentation/index.html">CDM documentation</a>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>: python file required to access subpackages and class functions inside <code class="docutils literal notranslate"><span class="pre">imodel.py</span></code>.</p></li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2><code class="docutils literal notranslate"><span class="pre">pandas.Dataframe</span></code><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>The data to map must have the following structure:</p>
+<ol class="arabic simple">
+<li><p>Be a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">pandas.DataFrame</a> (DF) with the data values organised into sections and/or columns.</p></li>
+<li><p>Attributes stored in the <code class="docutils literal notranslate"><span class="pre">pandas.Dataframe</span></code> as a python <a class="reference external" href="https://realpython.com/python-dicts/">dictionary</a> describing a simplified version of the input data model or schema.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The cdm-mapper relies on the output of the <a class="reference external" href="https://glamod.github.io/mdf_reader_documentation/tool-overview.html">mdf_reader</a> toolbox. Please read more on the mdf_reader documentation page to understand the structure of the <code class="docutils literal notranslate"><span class="pre">pandas.Dataframe</span></code> or <strong>schema</strong> containing the meteorological data to map.</p>
+</div>
+</div>
+</div>
+<div class="section" id="output-data">
+<h1>Output data<a class="headerlink" href="#output-data" title="Permalink to this headline">¶</a></h1>
+<p>The output of the main mapper function is a python <a class="reference external" href="https://realpython.com/python-dicts/">dictionary</a> with the <code class="docutils literal notranslate"><span class="pre">{cdm_table_name</span> <span class="pre">:</span> <span class="pre">cdm_table_object}</span></code> pairs of data, that can be afterwards printed to an ascii file. Each file or python dictionary contains one of the CDM tables for which a mapping has been defined in the <code class="docutils literal notranslate"><span class="pre">imodel</span></code>. Optionally, the intermediate mapped python object can also be accessed.</p>
+<p>With the above settings this tool supports mapping to the CDM format by:</p>
+<blockquote>
+<div><ul>
+<li><p>Direct mapping from an <code class="docutils literal notranslate"><span class="pre">imodel</span></code> element</p></li>
+<li><p>Direct assignment from the <code class="docutils literal notranslate"><span class="pre">imodel</span></code> elements attributes</p></li>
+<li><p>Assignment of a default value</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">imodel</span></code> elements transformation including any combination of the following: element combination, simple parameterization (input keyword arguments) or``imodel`` elements attributes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">imodel</span></code> or <strong>CDM</strong> coded values:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>From <code class="docutils literal notranslate"><span class="pre">imodel</span></code> key to <strong>CDM</strong> key</p></li>
+<li><p>From <code class="docutils literal notranslate"><span class="pre">imodel</span></code> key to <strong>CDM</strong> value: done by transforming functions in <code class="docutils literal notranslate"><span class="pre">imodel.py</span></code></p></li>
+<li><p>From <code class="docutils literal notranslate"><span class="pre">imodel</span></code> value to <strong>CDM</strong> key: also done by transforming functions in <code class="docutils literal notranslate"><span class="pre">imodel.py</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Click on next to understand how to install the tool and its capabilities.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Citation</dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">License</dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Authors</dt>
+<dd class="field-even"><p>David Berry, Irene Perez Gonzalez and Beatriz Recinos</p>
+</dd>
+</dl>
+<a class="reference external image-reference" href="https://climate.copernicus.eu/"><img alt="_images/logo_c3s-392x154.png" src="_images/logo_c3s-392x154.png" style="width: 25%;" /></a>
+<a class="reference external image-reference" href="https://noc.ac.uk/"><img alt="_images/LOGO_2020_-_NOC_1_COLOUR.png" src="_images/LOGO_2020_-_NOC_1_COLOUR.png" style="width: 25%;" /></a>
+<a class="reference external image-reference" href="https://icoads.noaa.gov/"><img alt="_images/icoadsLogo.png" src="_images/icoadsLogo.png" style="width: 20%;" /></a>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tool-set-up.html" class="btn btn-neutral float-right" title="Tool set up" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,472 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cdm.lib.mappings.mappings_hdlr &mdash; cdm-mapper v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> cdm-mapper
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../tool-set-up.html">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../tool-set-up.html#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../tool-set-up.html#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../tool-set-up.html#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../tool-set-up.html#install-mdf-reader-toolbox">4. Install <code class="docutils literal notranslate"><span class="pre">mdf_reader</span></code> toolbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../tool-set-up.html#optional-step-install-jupyter-notebooks">5. Optional step: install jupyter notebooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../getting-started.html#test-the-tool">1. Test the tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../getting-started.html#read-a-sample-imma">2. Read a sample <code class="docutils literal notranslate"><span class="pre">.imma</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../getting-started.html#map-this-data-to-a-cdm-build-for-the-same-deck">3. Map this data to a CDM build for the same deck</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../getting-started.html#write-the-output">4. Write the output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../how-to-register-a-new-data-model-mapping.html">How to register a new data model mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cdm-tables-mapping-files-and-descriptors.html">CDM tables mapping files and descriptors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../cdm-tables-mapping-files-and-descriptors.html#descriptors">Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../cdm-tables-mapping-files-and-descriptors.html#mapping-sequence">Mapping sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../cdm-tables-mapping-files-and-descriptors.html#defining-mapping-functions">Defining mapping functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../cdm-tables-mapping-files-and-descriptors.html#code-tables">Code tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.common</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../gridded_stats/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.gridded_stats</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.lib</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../mapper/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.mapper</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../table_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../table_writer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_writer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.properties</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../index.html#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">cdm-mapper</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.lib.mappings.mappings_hdlr</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/autoapi/cdm/lib/mappings/mappings_hdlr/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cdm.lib.mappings.mappings_hdlr">
+<span id="cdm-lib-mappings-mappings-hdlr"></span><h1><a class="reference internal" href="#module-cdm.lib.mappings.mappings_hdlr" title="cdm.lib.mappings.mappings_hdlr"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.lib.mappings.mappings_hdlr</span></code></a><a class="headerlink" href="#module-cdm.lib.mappings.mappings_hdlr" title="Permalink to this headline">¶</a></h1>
+<p>Created on Thu Apr 11 13:45:38 2019</p>
+<p>Module to handle data models mappers or imodel’s use to map meteorological variables to the C3S Climate Data Store
+Common Data Model (CMD) tables. This module handles all mappers contained inside the tool</p>
+<p>&#64;author: iregon</p>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.lib.mappings.mappings_hdlr.smart_dict" title="cdm.lib.mappings.mappings_hdlr.smart_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">smart_dict</span></code></a></p></td>
+<td><p>Gets items from nested dictionaries.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.lib.mappings.mappings_hdlr.dict_depth" title="cdm.lib.mappings.mappings_hdlr.dict_depth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict_depth</span></code></a>()</p></td>
+<td><p>Finds the depth of a python dictionary</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.lib.mappings.mappings_hdlr.expand_integer_range_key" title="cdm.lib.mappings.mappings_hdlr.expand_integer_range_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_integer_range_key</span></code></a>(d)</p></td>
+<td><p>NEEDS DOCUMENTING</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.lib.mappings.mappings_hdlr.get_functions_module_path" title="cdm.lib.mappings.mappings_hdlr.get_functions_module_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_functions_module_path</span></code></a>(imodel, log_level='INFO')</p></td>
+<td><p>NEEDS DOCUMENTING</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.lib.mappings.mappings_hdlr.load_code_tables_maps" title="cdm.lib.mappings.mappings_hdlr.load_code_tables_maps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_code_tables_maps</span></code></a>(imodel, codes_subset=None, log_level='INFO')</p></td>
+<td><p>NEEDS DOCUMENTING</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.lib.mappings.mappings_hdlr.load_tables_maps" title="cdm.lib.mappings.mappings_hdlr.load_tables_maps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_tables_maps</span></code></a>(imodel, cdm_subset=None, log_level='INFO')</p></td>
+<td><p>NEEDS DOCUMENTING</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.lib.mappings.mappings_hdlr.tool_name" title="cdm.lib.mappings.mappings_hdlr.tool_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tool_name</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.lib.mappings.mappings_hdlr.module_path" title="cdm.lib.mappings.mappings_hdlr.module_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">module_path</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.lib.mappings.mappings_hdlr.module_tree" title="cdm.lib.mappings.mappings_hdlr.module_tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">module_tree</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="cdm.lib.mappings.mappings_hdlr.tool_name">
+<code class="sig-name descname"><span class="pre">tool_name</span></code><em class="property"> <span class="pre">=</span> <span class="pre">cdm</span></em><a class="reference internal" href="../../../../../_modules/cdm/lib/mappings/mappings_hdlr.html#tool_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.lib.mappings.mappings_hdlr.tool_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cdm.lib.mappings.mappings_hdlr.module_path">
+<code class="sig-name descname"><span class="pre">module_path</span></code><a class="reference internal" href="../../../../../_modules/cdm/lib/mappings/mappings_hdlr.html#module_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.lib.mappings.mappings_hdlr.module_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cdm.lib.mappings.mappings_hdlr.module_tree">
+<code class="sig-name descname"><span class="pre">module_tree</span></code><a class="reference internal" href="../../../../../_modules/cdm/lib/mappings/mappings_hdlr.html#module_tree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.lib.mappings.mappings_hdlr.module_tree" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="cdm.lib.mappings.mappings_hdlr.dict_depth">
+<code class="sig-name descname"><span class="pre">dict_depth</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/cdm/lib/mappings/mappings_hdlr.html#dict_depth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.lib.mappings.mappings_hdlr.dict_depth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the depth of a python dictionary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>maximum dict depth</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="cdm.lib.mappings.mappings_hdlr.smart_dict">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">smart_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/cdm/lib/mappings/mappings_hdlr.html#smart_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.lib.mappings.mappings_hdlr.smart_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>Gets items from nested dictionaries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dict</strong> (<em>python dictionary.</em>) – <ul class="simple">
+<li><p>For simple dictionaries: <code class="docutils literal notranslate"><span class="pre">smart_dict(dict)[key]</span></code></p></li>
+<li><p>For nested dictionaries up to n levels</p></li>
+</ul>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>First level: can declare key as single element or in list</dt><dd><p>e.g. <code class="docutils literal notranslate"><span class="pre">smart_dict(dict)[[key]]</span></code>, <code class="docutils literal notranslate"><span class="pre">smart_dict(dict)[key]</span></code></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Successive levels: keys in list from outer to inner, up to desired level</dt><dd><p>e.g. <code class="docutils literal notranslate"><span class="pre">smart_dict(dict)[[key1,</span> <span class="pre">key2,key3]]</span></code>, <code class="docutils literal notranslate"><span class="pre">smart_dict(dict)[[key1,</span> <span class="pre">key2,key3,..keyn]]</span></code></p>
+</dd>
+</dl>
+</li>
+</ol>
+</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>if key or combination not found</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="cdm.lib.mappings.mappings_hdlr.smart_dict.__getitem__">
+<code class="sig-name descname"><span class="pre">__getitem__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/cdm/lib/mappings/mappings_hdlr.html#smart_dict.__getitem__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.lib.mappings.mappings_hdlr.smart_dict.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>NEEDS DOCUMENTING</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – </p></li>
+<li><p><strong>key</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>val</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="cdm.lib.mappings.mappings_hdlr.expand_integer_range_key">
+<code class="sig-name descname"><span class="pre">expand_integer_range_key</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/cdm/lib/mappings/mappings_hdlr.html#expand_integer_range_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.lib.mappings.mappings_hdlr.expand_integer_range_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>NEEDS DOCUMENTING</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>d</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cdm.lib.mappings.mappings_hdlr.get_functions_module_path">
+<code class="sig-name descname"><span class="pre">get_functions_module_path</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INFO'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/cdm/lib/mappings/mappings_hdlr.html#get_functions_module_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.lib.mappings.mappings_hdlr.get_functions_module_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>NEEDS DOCUMENTING</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>imodel</strong> – </p></li>
+<li><p><strong>log_level</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>logger.error</em></p></li>
+<li><p><em>imodel_functions</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cdm.lib.mappings.mappings_hdlr.load_code_tables_maps">
+<code class="sig-name descname"><span class="pre">load_code_tables_maps</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codes_subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INFO'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/cdm/lib/mappings/mappings_hdlr.html#load_code_tables_maps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.lib.mappings.mappings_hdlr.load_code_tables_maps" title="Permalink to this definition">¶</a></dt>
+<dd><p>NEEDS DOCUMENTING</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>imodel</strong> – </p></li>
+<li><p><strong>codes_subset</strong> – </p></li>
+<li><p><strong>log_level</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>logger.error</em></p></li>
+<li><p><em>codes</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cdm.lib.mappings.mappings_hdlr.load_tables_maps">
+<code class="sig-name descname"><span class="pre">load_tables_maps</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cdm_subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INFO'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/cdm/lib/mappings/mappings_hdlr.html#load_tables_maps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.lib.mappings.mappings_hdlr.load_tables_maps" title="Permalink to this definition">¶</a></dt>
+<dd><p>NEEDS DOCUMENTING</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>imodel</strong> – </p></li>
+<li><p><strong>cdm_subset</strong> – </p></li>
+<li><p><strong>log_level</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>logger.error</em></p></li>
+<li><p><em>maps</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

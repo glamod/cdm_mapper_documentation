@@ -1,0 +1,458 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cdm &mdash; cdm-mapper v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> cdm-mapper
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../tool-set-up.html">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-set-up.html#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-set-up.html#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-set-up.html#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-set-up.html#install-mdf-reader-toolbox">4. Install <code class="docutils literal notranslate"><span class="pre">mdf_reader</span></code> toolbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-set-up.html#optional-step-install-jupyter-notebooks">5. Optional step: install jupyter notebooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#test-the-tool">1. Test the tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#read-a-sample-imma">2. Read a sample <code class="docutils literal notranslate"><span class="pre">.imma</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#map-this-data-to-a-cdm-build-for-the-same-deck">3. Map this data to a CDM build for the same deck</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#write-the-output">4. Write the output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../how-to-register-a-new-data-model-mapping.html">How to register a new data model mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cdm-tables-mapping-files-and-descriptors.html">CDM tables mapping files and descriptors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../cdm-tables-mapping-files-and-descriptors.html#descriptors">Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cdm-tables-mapping-files-and-descriptors.html#mapping-sequence">Mapping sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cdm-tables-mapping-files-and-descriptors.html#defining-mapping-functions">Defining mapping functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cdm-tables-mapping-files-and-descriptors.html#code-tables">Code tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.common</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gridded_stats/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.gridded_stats</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.lib</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mapper/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.mapper</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="table_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="table_writer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_writer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.properties</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">cdm-mapper</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/autoapi/cdm/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cdm">
+<span id="cdm"></span><h1><a class="reference internal" href="#module-cdm" title="cdm"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm</span></code></a><a class="headerlink" href="#module-cdm" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.common</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="common/logging_hdlr/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.common.logging_hdlr</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="common/pandas_TextParser_hdlr/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.common.pandas_TextParser_hdlr</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gridded_stats/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.gridded_stats</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gridded_stats/gridded_stats/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.gridded_stats.gridded_stats</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lib/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.lib</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lib/mappings/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.lib.mappings</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lib/mappings/mappings_hdlr/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.lib.mappings.mappings_hdlr</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lib/tables/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.lib.tables</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lib/tables/tables_hdlr/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.lib.tables.tables_hdlr</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mapper/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.mapper</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mapper/mapper/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.mapper.mapper</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="table_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_reader</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="table_reader/table_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_reader.table_reader</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="table_writer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_writer</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="table_writer/table_writer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_writer.table_writer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.properties</span></code></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.map_model" title="cdm.map_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map_model</span></code></a>(imodel, data, data_atts, cdm_subset=None, log_level='INFO')</p></td>
+<td><p>Calls the main mapping function _map()</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.cdm_to_ascii" title="cdm.cdm_to_ascii"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cdm_to_ascii</span></code></a>(cdm, delimiter='|', null_label='null', cdm_complete=True, extension='psv', out_dir=None, suffix=None, prefix=None, log_level='INFO')</p></td>
+<td><p>Exports a complete cdm file with multiple tables to an ascii file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.table_to_ascii" title="cdm.table_to_ascii"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table_to_ascii</span></code></a>(table, table_atts, delimiter='|', null_label='null', cdm_complete=True, filename=None, full_table=True, log_level='INFO')</p></td>
+<td><p>Exports a cdm table to an ascii file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cdm.read_tables" title="cdm.read_tables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_tables</span></code></a>(tb_path, tb_id, cdm_subset=None, delimiter='|', extension='psv', col_subset=None, log_level='INFO', na_values=[])</p></td>
+<td><p>Reads CDM table like files from file system to a pandas data frame.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt id="cdm.map_model">
+<code class="sig-name descname"><span class="pre">map_model</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_atts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cdm_subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INFO'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cdm/mapper/mapper.html#map_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.map_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls the main mapping function _map()</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>imodel</strong> (<em>a data model that can be of several types.</em>) – <p>1. A generic mapping from a defined data model, like IMMA1’s core and attachments.
+e.g. <code class="docutils literal notranslate"><span class="pre">~/cdm-mapper/lib/mappings/icoads_r3000</span></code></p>
+<p>2. A specific mapping from generic data model to CDM, like map a SID-DCK from IMMA1’s core and attachments to
+CDM in a specific way.</p>
+<blockquote>
+<div><p>e.g. <code class="docutils literal notranslate"><span class="pre">~/cdm-mapper/lib/mappings/icoads_r3000_d704</span></code></p>
+</div></blockquote>
+</p></li>
+<li><p><strong>data</strong> (<em>input data to map.</em>) – e.g. a <code class="docutils literal notranslate"><span class="pre">pandas.Dataframe</span></code> or <code class="docutils literal notranslate"><span class="pre">io.parsers.TextFileReader</span></code> objects or in-memory text streams
+(io.StringIO object).</p></li>
+<li><p><strong>data_atts</strong> (<em>dictionary with the {element_name:element_attributes} of the data.</em>) – Type: string.</p></li>
+<li><p><strong>cdm_subset</strong> (<em>subset of CDM model tables to map.</em>) – Defaults to the full set of CDM tables defined for the imodel. Type: list.</p></li>
+<li><p><strong>log_level</strong> (<em>level of logging information to save.</em>) – Defaults to ‘DEBUG’.
+Type string.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>cdm_tables</em> – a python dictionary with the <code class="docutils literal notranslate"><span class="pre">{cdm_table_name:</span> <span class="pre">cdm_table_object}</span></code> pairs.</p></li>
+<li><p><em>For more information look at the _map function.</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cdm.cdm_to_ascii">
+<code class="sig-name descname"><span class="pre">cdm_to_ascii</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cdm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'|'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'null'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cdm_complete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'psv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INFO'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cdm/table_writer/table_writer.html#cdm_to_ascii"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.cdm_to_ascii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exports a complete cdm file with multiple tables to an ascii file.
+Exports a complete cdm file with multiple tables written in the C3S Climate Data Store Common Data Model (CDM)
+format to ascii files.
+The tables format is contained in a python dictionary, stored as an attribute in a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>
+(or <code class="docutils literal notranslate"><span class="pre">pd.io.parsers.TextFileReader</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cdm</strong> – common data model tables to export</p></li>
+<li><p><strong>delimiter</strong> – default ‘|’</p></li>
+<li><p><strong>null_label</strong> – specified how nan are represented</p></li>
+<li><p><strong>cdm_complete</strong> – extract the entire cdm file</p></li>
+<li><p><strong>extension</strong> – default ‘psv’</p></li>
+<li><p><strong>out_dir</strong> – where to stored the ascii file</p></li>
+<li><p><strong>suffix</strong> – file suffix</p></li>
+<li><p><strong>prefix</strong> – file prefix</p></li>
+<li><p><strong>log_level</strong> – level of logging information</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Saves the cdm tables as ascii files in the given directory with a psv extension.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cdm.table_to_ascii">
+<code class="sig-name descname"><span class="pre">table_to_ascii</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_atts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'|'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'null'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cdm_complete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_table</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INFO'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cdm/table_writer/table_writer.html#table_to_ascii"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.table_to_ascii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exports a cdm table to an ascii file.
+Exports tables written in the C3S Climate Data Store Common Data Model (CDM) format to ascii files.
+The tables format is contained in a python dictionary, stored as an attribute in a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>
+(or <code class="docutils literal notranslate"><span class="pre">pd.io.parsers.TextFileReader</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> – pandas.Dataframe to export</p></li>
+<li><p><strong>table_atts</strong> (<em>attributes of the pandas.Dataframe stored as a python dictionary.</em>) – This contains all element names, characteristics and types encoding,
+as well as other characteristics e.g. decimal places, etc.</p></li>
+<li><p><strong>delimiter</strong> – default ‘|’</p></li>
+<li><p><strong>null_label</strong> – specified how nan are represented</p></li>
+<li><p><strong>cdm_complete</strong> (<em>if we export the entire set of tables.</em>) – default is <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>filename</strong> – the name of the file to stored the data</p></li>
+<li><p><strong>full_table</strong> – if we export a single table</p></li>
+<li><p><strong>log_level</strong> – level of logging information to be saved</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Saves cdm tables as ascii files</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cdm.read_tables">
+<code class="sig-name descname"><span class="pre">read_tables</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tb_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tb_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cdm_subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'|'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'psv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INFO'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">na_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cdm/table_reader/table_reader.html#read_tables"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.read_tables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads CDM table like files from file system to a pandas data frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tb_path</strong> – path to the file</p></li>
+<li><p><strong>tb_id</strong> – any identifier including wildcards if required extension, defaulting to ‘psv’</p></li>
+<li><p><strong>cdm_subset</strong> (<em>specifies a subset of tables</em><em> or </em><em>a single table.</em>) – <ul>
+<li><p>For multiple subsets of tables: This option will return a pandas.Dataframe that is multi-index at</p></li>
+</ul>
+<p>the columns, with (table-name, field) as column names. Tables are merged via the report_id field.
+- For a single table: the function returns a pandas.Dataframe with a simple indexing for the columns.</p>
+</p></li>
+<li><p><strong>delimiter</strong> – default is ‘|’</p></li>
+<li><p><strong>extension</strong> – default is psv</p></li>
+<li><p><strong>col_subset</strong> (<em>a python dictionary specifying the section</em><em> or </em><em>sections of the file to read</em>) – <ul>
+<li><dl class="simple">
+<dt>For multiple sections of the tables:</dt><dd><p>e.g <code class="docutils literal notranslate"><span class="pre">col_subset</span> <span class="pre">=</span> <span class="pre">{table0:[columns],...tablen:[columns]}</span></code></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>For a single section:</dt><dd><p>e.g. <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">type</span> <span class="pre">object</span> <span class="pre">col_subset</span> <span class="pre">=</span> <span class="pre">[columns]</span></code>
+This variable assumes that the column names are all conform to the cdm field names in lib.tables/<a href="#id1"><span class="problematic" id="id2">*</span></a>.json</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p></li>
+<li><p><strong>log_level</strong> (<em>Level of logging messages to save</em>) – </p></li>
+<li><p><strong>na_values</strong> (<em>specifies the format of NaN values</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>pandas.Dataframe</strong> (<em>either the entire file or a subset of it.</em>)</p></li>
+<li><p><strong>logger.error</strong> (<em>logs specific messages if there is any error.</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,382 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cdm.table_reader.table_reader &mdash; cdm-mapper v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> cdm-mapper
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../tool-set-up.html">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#install-mdf-reader-toolbox">4. Install <code class="docutils literal notranslate"><span class="pre">mdf_reader</span></code> toolbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#optional-step-install-jupyter-notebooks">5. Optional step: install jupyter notebooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../getting-started.html#test-the-tool">1. Test the tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../getting-started.html#read-a-sample-imma">2. Read a sample <code class="docutils literal notranslate"><span class="pre">.imma</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../getting-started.html#map-this-data-to-a-cdm-build-for-the-same-deck">3. Map this data to a CDM build for the same deck</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../getting-started.html#write-the-output">4. Write the output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how-to-register-a-new-data-model-mapping.html">How to register a new data model mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html">CDM tables mapping files and descriptors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html#descriptors">Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html#mapping-sequence">Mapping sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html#defining-mapping-functions">Defining mapping functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cdm-tables-mapping-files-and-descriptors.html#code-tables">Code tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.common</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../gridded_stats/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.gridded_stats</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../lib/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.lib</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../mapper/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.mapper</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../table_writer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_writer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.properties</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../index.html#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">cdm-mapper</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_reader.table_reader</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/autoapi/cdm/table_reader/table_reader/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cdm.table_reader.table_reader">
+<span id="cdm-table-reader-table-reader"></span><h1><a class="reference internal" href="#module-cdm.table_reader.table_reader" title="cdm.table_reader.table_reader"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cdm.table_reader.table_reader</span></code></a><a class="headerlink" href="#module-cdm.table_reader.table_reader" title="Permalink to this headline">¶</a></h1>
+<p>Created on Thu Apr 11 13:45:38 2019</p>
+<p>Reads files with the CDM table format from a file system to a pandas.Dataframe.</p>
+<p>All CDM fields are read as objects. Null values are read with the specified null value
+in the table files, or as NaN if the na_values argument is set to the a specific null
+value in the file.</p>
+<p>Reads the full set of files (default), a subset or a single table, as controlled
+by cdm_subset:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>When reading multiple tables, the resulting dataframe is multi-indexed in</dt><dd><p>the columns, with (table-name, field) as column names. Merging of tables
+occurs on the report_id field.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>When reading a single table, the resulting dataframe has simple indexing</dt><dd><p>in the columns.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>Reads the full set of fields (default) or a subset of it, as controlled by
+param col_subset:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>When reading multiple tables (default or subset), the col_subset is a</dt><dd><p>dictionary like: col_subset = {table0:[columns],…tablen:[columns]}
+If a table is not specified in col_subset, all its fields are read.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>When reading a single table, the col_subset is a list like:</dt><dd><p>col_subset = [columns]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>It is assumed that the column names are all conform to the cdm field names</dt><dd><p>in lib.tables/<a href="#id1"><span class="problematic" id="id2">*</span></a>.json</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>The full table set (header, observations-<a href="#id3"><span class="problematic" id="id4">*</span></a>) is assumed to be in the same directory.</p>
+<dl class="simple">
+<dt>Filenames for tables are assumed to be:</dt><dd><p>tableName-&lt;tb_id&gt;.&lt;extension&gt;</p>
+</dd>
+<dt>with:</dt><dd><p>valid tableName: as declared in properties.cdm_tables
+tb_id: any identifier including wildcards if required
+extension: defaulting to ‘psv’</p>
+</dd>
+</dl>
+<p>When specifying a subset of tables, valid names are those in properties.cdm_tables</p>
+<p>&#64;author: iregon</p>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.table_reader.table_reader.read_tables" title="cdm.table_reader.table_reader.read_tables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_tables</span></code></a>(tb_path, tb_id, cdm_subset=None, delimiter='|', extension='psv', col_subset=None, log_level='INFO', na_values=[])</p></td>
+<td><p>Reads CDM table like files from file system to a pandas data frame.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cdm.table_reader.table_reader.module_path" title="cdm.table_reader.table_reader.module_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">module_path</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="cdm.table_reader.table_reader.module_path">
+<code class="sig-name descname"><span class="pre">module_path</span></code><a class="reference internal" href="../../../../_modules/cdm/table_reader/table_reader.html#module_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.table_reader.table_reader.module_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="cdm.table_reader.table_reader.read_tables">
+<code class="sig-name descname"><span class="pre">read_tables</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tb_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tb_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cdm_subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'|'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'psv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INFO'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">na_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cdm/table_reader/table_reader.html#read_tables"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdm.table_reader.table_reader.read_tables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads CDM table like files from file system to a pandas data frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tb_path</strong> – path to the file</p></li>
+<li><p><strong>tb_id</strong> – any identifier including wildcards if required extension, defaulting to ‘psv’</p></li>
+<li><p><strong>cdm_subset</strong> (<em>specifies a subset of tables</em><em> or </em><em>a single table.</em>) – <ul>
+<li><p>For multiple subsets of tables: This option will return a pandas.Dataframe that is multi-index at</p></li>
+</ul>
+<p>the columns, with (table-name, field) as column names. Tables are merged via the report_id field.
+- For a single table: the function returns a pandas.Dataframe with a simple indexing for the columns.</p>
+</p></li>
+<li><p><strong>delimiter</strong> – default is ‘|’</p></li>
+<li><p><strong>extension</strong> – default is psv</p></li>
+<li><p><strong>col_subset</strong> (<em>a python dictionary specifying the section</em><em> or </em><em>sections of the file to read</em>) – <ul>
+<li><dl class="simple">
+<dt>For multiple sections of the tables:</dt><dd><p>e.g <code class="docutils literal notranslate"><span class="pre">col_subset</span> <span class="pre">=</span> <span class="pre">{table0:[columns],...tablen:[columns]}</span></code></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>For a single section:</dt><dd><p>e.g. <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">type</span> <span class="pre">object</span> <span class="pre">col_subset</span> <span class="pre">=</span> <span class="pre">[columns]</span></code>
+This variable assumes that the column names are all conform to the cdm field names in lib.tables/<a href="#id5"><span class="problematic" id="id6">*</span></a>.json</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p></li>
+<li><p><strong>log_level</strong> (<em>Level of logging messages to save</em>) – </p></li>
+<li><p><strong>na_values</strong> (<em>specifies the format of NaN values</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>pandas.Dataframe</strong> (<em>either the entire file or a subset of it.</em>)</p></li>
+<li><p><strong>logger.error</strong> (<em>logs specific messages if there is any error.</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

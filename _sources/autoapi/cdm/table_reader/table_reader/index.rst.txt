@@ -1,0 +1,104 @@
+:mod:`cdm.table_reader.table_reader`
+====================================
+
+.. py:module:: cdm.table_reader.table_reader
+
+.. autoapi-nested-parse::
+
+   Created on Thu Apr 11 13:45:38 2019
+
+   Reads files with the CDM table format from a file system to a pandas.Dataframe.
+
+   All CDM fields are read as objects. Null values are read with the specified null value
+   in the table files, or as NaN if the na_values argument is set to the a specific null
+   value in the file.
+
+   Reads the full set of files (default), a subset or a single table, as controlled
+   by cdm_subset:
+
+       - When reading multiple tables, the resulting dataframe is multi-indexed in
+           the columns, with (table-name, field) as column names. Merging of tables
+           occurs on the report_id field.
+       - When reading a single table, the resulting dataframe has simple indexing
+           in the columns.
+
+   Reads the full set of fields (default) or a subset of it, as controlled by
+   param col_subset:
+       - When reading multiple tables (default or subset), the col_subset is a
+           dictionary like: col_subset = {table0:[columns],...tablen:[columns]}
+           If a table is not specified in col_subset, all its fields are read.
+       - When reading a single table, the col_subset is a list like:
+           col_subset = [columns]
+       - It is assumed that the column names are all conform to the cdm field names
+           in lib.tables/*.json
+
+   The full table set (header, observations-*) is assumed to be in the same directory.
+
+   Filenames for tables are assumed to be:
+       tableName-<tb_id>.<extension>
+   with:
+       valid tableName: as declared in properties.cdm_tables
+       tb_id: any identifier including wildcards if required
+       extension: defaulting to 'psv'
+
+   When specifying a subset of tables, valid names are those in properties.cdm_tables
+
+   @author: iregon
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cdm.table_reader.table_reader.read_tables
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   cdm.table_reader.table_reader.module_path
+
+
+.. data:: module_path
+   
+
+   
+
+.. function:: read_tables(tb_path, tb_id, cdm_subset=None, delimiter='|', extension='psv', col_subset=None, log_level='INFO', na_values=[])
+
+   Reads CDM table like files from file system to a pandas data frame.
+
+   :param tb_path: path to the file
+   :param tb_id: any identifier including wildcards if required extension, defaulting to 'psv'
+   :param cdm_subset:
+                      - For multiple subsets of tables: This option will return a pandas.Dataframe that is multi-index at
+                      the columns, with (table-name, field) as column names. Tables are merged via the report_id field.
+                      - For a single table: the function returns a pandas.Dataframe with a simple indexing for the columns.
+   :type cdm_subset: specifies a subset of tables or a single table.
+   :param delimiter: default is '|'
+   :param extension: default is psv
+   :param col_subset:
+                      - For multiple sections of the tables:
+                          e.g ``col_subset = {table0:[columns],...tablen:[columns]}``
+                      - For a single section:
+                          e.g. ``list type object col_subset = [columns]``
+                          This variable assumes that the column names are all conform to the cdm field names in lib.tables/*.json
+   :type col_subset: a python dictionary specifying the section or sections of the file to read
+   :param log_level:
+   :type log_level: Level of logging messages to save
+   :param na_values:
+   :type na_values: specifies the format of NaN values
+
+   :returns: * **pandas.Dataframe** (*either the entire file or a subset of it.*)
+             * **logger.error** (*logs specific messages if there is any error.*)
+
+

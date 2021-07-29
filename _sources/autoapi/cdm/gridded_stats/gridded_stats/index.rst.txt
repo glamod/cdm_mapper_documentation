@@ -1,0 +1,193 @@
+:mod:`cdm.gridded_stats.gridded_stats`
+======================================
+
+.. py:module:: cdm.gridded_stats.gridded_stats
+
+.. autoapi-nested-parse::
+
+   Created on Tue May 21 16:06:16 2019
+
+   Important note:
+       This script is not well documented and it seems to have incomplete work.
+
+   Sets data descriptors on a monthly lat-lon box grid: counts, max, min, mean. And saves data to a netcdf file
+
+   @author: iregon
+
+   DEVS notes:
+       These functions using dask need to work with env1 in C3S r092019, since there are some issues with pyarrow and
+       msgpack that had to be downgraded from 0.6.0 (default) to 0.5.6 after.
+
+       File "msgpack/_unpacker.pyx", line 187, in msgpack._cmsgpack.unpackb
+       ValueError: 1281167 exceeds max_array_len(131072)
+       See https://github.com/tensorpack/tensorpack/issues/1003
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cdm.gridded_stats.gridded_stats.bounds
+   cdm.gridded_stats.gridded_stats.create_canvas
+   cdm.gridded_stats.gridded_stats.from_cdm_monthly
+   cdm.gridded_stats.gridded_stats.merge_from_monthly_nc
+   cdm.gridded_stats.gridded_stats.global_from_monthly_cdm
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   cdm.gridded_stats.gridded_stats.REGIONS
+   cdm.gridded_stats.gridded_stats.DEGREE_FACTOR_RESOLUTION
+   cdm.gridded_stats.gridded_stats.DS_AGGREGATIONS
+   cdm.gridded_stats.gridded_stats.AGGREGATIONS
+   cdm.gridded_stats.gridded_stats.DS_AGGREGATIONS_HDR
+   cdm.gridded_stats.gridded_stats.AGGREGATIONS_HDR
+   cdm.gridded_stats.gridded_stats.ENCODINGS
+   cdm.gridded_stats.gridded_stats.ENCODINGS_HDR
+   cdm.gridded_stats.gridded_stats.CDM_DTYPES
+   cdm.gridded_stats.gridded_stats.READ_COLS
+   cdm.gridded_stats.gridded_stats.DTYPES
+   cdm.gridded_stats.gridded_stats.READ_COLS_HDR
+   cdm.gridded_stats.gridded_stats.DTYPES_HDR
+   cdm.gridded_stats.gridded_stats.DELIMITER
+
+
+.. data:: REGIONS
+   
+
+   
+
+.. data:: DEGREE_FACTOR_RESOLUTION
+   
+
+   
+
+.. data:: DS_AGGREGATIONS
+   
+
+   
+
+.. data:: AGGREGATIONS
+   :annotation: = ['counts', 'max', 'min', 'mean']
+
+   
+
+.. data:: DS_AGGREGATIONS_HDR
+   
+
+   
+
+.. data:: AGGREGATIONS_HDR
+   :annotation: = ['counts']
+
+   
+
+.. data:: ENCODINGS
+   
+
+   
+
+.. data:: ENCODINGS_HDR
+   
+
+   
+
+.. data:: CDM_DTYPES
+   
+
+   
+
+.. data:: READ_COLS
+   :annotation: = ['report_id', 'latitude', 'longitude', 'observation_value', 'date_time', 'quality_flag']
+
+   
+
+.. data:: DTYPES
+   
+
+   
+
+.. data:: READ_COLS_HDR
+   :annotation: = ['report_id', 'latitude', 'longitude', 'crs', 'report_timestamp', 'report_quality']
+
+   
+
+.. data:: DTYPES_HDR
+   
+
+   
+
+.. data:: DELIMITER
+   :annotation: = |
+
+   
+
+.. function:: bounds(x_range, y_range)
+
+   :param x_range:
+   :param y_range:
+
+   :returns:
+   :rtype: dict
+
+
+.. function:: create_canvas(bbox, degree_factor)
+
+   :param bbox:
+   :param degree_factor:
+
+   :returns:
+   :rtype: plot
+
+
+.. function:: from_cdm_monthly(dir_data, cdm_id=None, region='Global', resolution='lo_res', nc_dir=None, qc=None, qc_report=None)
+
+   :param dir_data:
+   :param cdm_id:
+   :param region:
+   :param resolution:
+   :param nc_dir:
+   :param qc:
+   :param qc_report:
+
+   :returns: * *logging.error*
+             * *netcdf_file*
+
+
+.. function:: merge_from_monthly_nc(dir_data, cdm_id=None, nc_dir=None, force_header=True)
+
+   :param dir_data:
+   :param cdm_id:
+   :param nc_dir:
+   :param force_header:
+
+   :returns: * *logging.error*
+             * *netcdf_file*
+
+
+.. function:: global_from_monthly_cdm(dir_data, cdm_id=None, region='Global', resolution='lo_res', nc_dir=None, qc=None, qc_report=None, scratch_dir=None, tables=None)
+
+   :param dir_data:
+   :param cdm_id:
+   :param region:
+   :param resolution:
+   :param nc_dir:
+   :param qc:
+   :param qc_report:
+   :param scratch_dir:
+   :param tables:
+
+   :returns: * *logging.error*
+             * *netcdf_file*
+
+

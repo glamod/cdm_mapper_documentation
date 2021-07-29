@@ -1,0 +1,64 @@
+:mod:`cdm.common.pandas_TextParser_hdlr`
+========================================
+
+.. py:module:: cdm.common.pandas_TextParser_hdlr
+
+.. autoapi-nested-parse::
+
+   Created on Tue Apr  2 10:34:56 2019
+
+   Module with functions to handle pd.io.parsers.TextFileReader objects.
+
+   @author: iregon
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cdm.common.pandas_TextParser_hdlr.restore
+   cdm.common.pandas_TextParser_hdlr.is_not_empty
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   cdm.common.pandas_TextParser_hdlr.logger
+
+
+.. data:: logger
+   
+
+   
+
+.. function:: restore(TextParser_ref, TextParser_options)
+
+   NEEDS DOCUMENTING
+
+   :param TextParser_ref:
+   :param TextParser_options:
+
+   :returns:
+   :rtype: TextParser
+
+
+.. function:: is_not_empty(TextParser)
+
+   NEEDS DOCUMENTING
+
+   :param TextParser:
+
+   :returns: * **logger.error** (*logs specific messages if there is any error.*)
+             * *bool*
+             * *TextParser*
+
+
