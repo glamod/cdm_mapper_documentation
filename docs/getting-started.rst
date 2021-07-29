@@ -28,7 +28,7 @@ Read a file from the folder ``~/mdf_reader/test/data/`` via the following code::
     data_raw = mdf_reader.read(data_file_path, data_model = schema)
     attributes = data_raw.atts.copy()
 
-This ``data_raw`` and its ``attributes`` will be the input to the ``cdm.map_model()`` function.
+This ``data_raw`` and its ``attributes`` will be the input to the :py:func:`cdm.mapper.mapper.map_model()` function.
 
 3. Map this data to a CDM build for the same deck
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

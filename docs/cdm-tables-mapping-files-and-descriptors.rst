@@ -149,7 +149,7 @@ The following range of code table structures are currently supported:
 - Nested code tables: code tables with multiple (2 or more) keys mapping to a value ``-> key(1):…:key(n):value.``
 - Range-keyed code tables: code tables (simple or multi-keyed) where one or more keys is a (integer) range of values.
 
-For more information on code tables and their structure check out the `mdf_reader tool - code tables <https://mdf-reader.readthedocs.io/en/mdf_reader/data-models.html#code-tables>`_ information.
+For more information on code tables and their structure check out the `mdf_reader tool - code tables <https://glamod.github.io/mdf_reader_documentation/data-models.html#code-tables>`_ information.
 
 The code table above, is use by the ``icoads_r3000`` imodel to map ``platform_sub_type`` information to the C3s CDM format, this is done in  the following section of the ``header.json`` file::
 
@@ -161,7 +161,7 @@ The code table above, is use by the ``icoads_r3000`` imodel to map ``platform_su
 
 The "key" in this case, will be the value read from the ICOADS section ``c1`` and element ``PT``, for key values equal to 7 a 69 code will be assigned.
 
-Code tables can be also used for simple transformations of the elements, depending on the medata data to map. e.g. The case of deck 701, where we expand ship names to the ships original full name. We do this by reading meta data information from the ``c99`` ICOADS supplemental data attachment. The imodel for deck 701 provides a code table to transform the names into the ships original name format recorded in the original ship logbook (to see the ``ship_names.json`` code_table click in the following `file <>`_)::
+Code tables can be also used for simple transformations of the elements, depending on the medata data to map. e.g. The case of deck 701, where we expand ship names to the ships original full name. We do this by reading meta data information from the ``c99`` ICOADS supplemental data attachment. The imodel for deck 701 provides a code table to transform the names into the ships original name format recorded in the original ship logbook (to see the ``ship_names.json`` code_table click in the following `file <https://github.com/glamod/cdm-mapper/blob/master/lib/mappings/icoads_r3000_d701_type1/code_tables/ship_names.json>`_)::
 
      "station_name": {
             "sections": "core",

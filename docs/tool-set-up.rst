@@ -10,7 +10,7 @@ The cdm tool is a pure Python package, but it has a few dependencies that rely i
 Make sure that you have a designated folder or directory to store the module and clone the latest version via::
 
       $ cd /to_your_designated_folder/
-      $ git clone git@git.noc.ac.uk:brecinosrivas/cdm-mapper.git --branch master --single-branch cdm
+      $ git clone git@github.com:glamod/cdm-mapper.git --branch master --single-branch cdm
 
 .. _git: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
@@ -50,10 +50,10 @@ Check the conda or mamba documentation to install dependencies via those tools.
 4. Install ``mdf_reader`` toolbox
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When installing the `mdf_reader <https://mdf-reader.readthedocs.io/en/mdf_reader/tool-set-up.html#>`_ toolbox you don't need to create a new python or conda environment, just install the tool by cloning the repository **in the same directory where you have stored the cdm toolbox via**::
+When installing the `mdf_reader <https://glamod.github.io/mdf_reader_documentation/tool-set-up.html>`_ toolbox you don't need to create a new python or conda environment, just install the tool by cloning the repository **in the same directory where you have stored the cdm toolbox via**::
 
     $ cd /to_your_designated_folder/
-    $ git clone git@git.noc.ac.uk:brecinosrivas/mdf_reader.git
+    $ git clone git@github.com:glamod/mdf_reader.git
 
 .. warning:: **Make sure that both repositories cdm and mdf_reader are stored in the same directory**
 
